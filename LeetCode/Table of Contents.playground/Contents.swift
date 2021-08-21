@@ -28,6 +28,7 @@
      - [0977. 有序数组的平方](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)
  - [链表](https://leetcode-cn.com/tag/linked-list/)
      - [0203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/)
+     - [0206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
      - [0707. 设计链表](https://leetcode-cn.com/problems/design-linked-list/)
  */
 

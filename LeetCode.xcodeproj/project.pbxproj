@@ -20,7 +20,7 @@
 		8071FE1F2611B65B00757C95 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8071FE1E2611B65B00757C95 /* Tree.swift */; };
 		8076191C25C1174B00FB21A9 /* LeetCode_102.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8076191B25C1174B00FB21A9 /* LeetCode_102.swift */; };
 		80774A5F26CB7E8200B35D62 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80774A5E26CB7E8200B35D62 /* Node.swift */; };
-		807AA835261EF210004E8BDD /* LeetCode_206.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807AA834261EF210004E8BDD /* LeetCode_206.swift */; };
+		807AA835261EF210004E8BDD /* LeetCode_0206.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807AA834261EF210004E8BDD /* LeetCode_0206.swift */; };
 		807F5DE725C14F4E002C955F /* LeetCode_107.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F5DE625C14F4E002C955F /* LeetCode_107.swift */; };
 		807F5DEB25C1513C002C955F /* LeetCode_199.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F5DEA25C1513C002C955F /* LeetCode_199.swift */; };
 		807F5DEE25C155E3002C955F /* LeetCode_637.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F5DED25C155E3002C955F /* LeetCode_637.swift */; };
@@ -74,7 +74,7 @@
 		8071FE1E2611B65B00757C95 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		8076191B25C1174B00FB21A9 /* LeetCode_102.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_102.swift; sourceTree = "<group>"; };
 		80774A5E26CB7E8200B35D62 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		807AA834261EF210004E8BDD /* LeetCode_206.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_206.swift; sourceTree = "<group>"; };
+		807AA834261EF210004E8BDD /* LeetCode_0206.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_0206.swift; sourceTree = "<group>"; };
 		807F5DE625C14F4E002C955F /* LeetCode_107.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_107.swift; sourceTree = "<group>"; };
 		807F5DEA25C1513C002C955F /* LeetCode_199.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_199.swift; sourceTree = "<group>"; };
 		807F5DED25C155E3002C955F /* LeetCode_637.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_637.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				8056C04F25ECD1BD008D439D /* LeetCode_0203.swift */,
-				807AA834261EF210004E8BDD /* LeetCode_206.swift */,
+				807AA834261EF210004E8BDD /* LeetCode_0206.swift */,
 				816B53AB26C954550037C74F /* LeetCode_0707.swift */,
 			);
 			path = Solution;
@@ -382,7 +382,7 @@
 				811E670725BD5BE1006B7549 /* TreeTestData.swift in Sources */,
 				807F5E0625C15E91002C955F /* LeetCode_429.swift in Sources */,
 				8071FE1F2611B65B00757C95 /* Tree.swift in Sources */,
-				807AA835261EF210004E8BDD /* LeetCode_206.swift in Sources */,
+				807AA835261EF210004E8BDD /* LeetCode_0206.swift in Sources */,
 				81D2350F25C1A2C400F19BBD /* LeetCode_589.swift in Sources */,
 				80419B3926C57F6500F8B6BF /* Offer_29.swift in Sources */,
 				8071FE192611B61100757C95 /* Stack.swift in Sources */,

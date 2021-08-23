@@ -30,6 +30,8 @@
      - [0203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/)
      - [0206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
      - [0707. 设计链表](https://leetcode-cn.com/problems/design-linked-list/)
+ - [字符串](https://leetcode-cn.com/tag/string/problemset/)
+     - [0344. 反转字符串](https://leetcode-cn.com/problems/reverse-string)
  */
 
 /*:

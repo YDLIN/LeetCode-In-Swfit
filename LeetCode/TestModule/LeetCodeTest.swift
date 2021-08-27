@@ -11,7 +11,8 @@ import Foundation
 class LeetCodeTest {
     func startTest() {
 //        leetCode_0203Test()
-        leetCode_0707Test()
+//        leetCode_0707Test()
+        solution_0541_test()
     }
 }
 
@@ -25,5 +26,10 @@ extension LeetCodeTest {
         let linkList = Solution_0707()
         linkList.addAtTail(1)
         print(linkList.get(0))
+    }
+    
+    func solution_0541_test() {
+        Solution_0541().solution_0541_test(string_1, 2)
+//        Solution_0541().solution_0541_test(string_2, 4)
     }
 }

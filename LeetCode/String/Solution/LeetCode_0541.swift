@@ -20,8 +20,39 @@ import Foundation
 
 /********************解题********************/
 class Solution_0541 {
+    // 解法一
+//    func reverseStr(_ s: String, _ k: Int) -> String {
+//
+//        return s
+//    }
+    
+    // 解法二
     func reverseStr(_ s: String, _ k: Int) -> String {
+        var ch = Array(s)
         
-        return ""
+        for i in stride(from: 0, to: ch.count, by: 2 * k) {
+            var left = i
+            // 这里是判断尾数够不够k个来决定end指针的位置
+            // 如果start + k - 1小于字符串长度，则表明是够k个，否则不够
+            var right = min(s.count - 1, left + k - 1)
+            
+            // 反转字符串，跟344题类似
+            while left < right {
+                // 交换两个值
+                (ch[left], ch[right]) = (ch[right], ch[left])
+                // 左边指针往右走，缩小范围
+                left += 1
+                // 右边指针往左走，缩小范围
+                right -= 1
+            }
+        }
+        return String(ch)
+    }
+}
+
+/********************测试代码********************/
+extension Solution_0541 {
+    func solution_0541_test(_ s: String, _ k: Int) {
+        print(reverseStr(s, k))
     }
 }

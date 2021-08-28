@@ -101,7 +101,7 @@ import Foundation
 //solution_206.solution_206_test(linkedList.head)
 
 let offer = OfferTest()
-//offer.startTest()
+offer.startTest()
 
 let leetCode = LeetCodeTest()
-leetCode.startTest()
+//leetCode.startTest()

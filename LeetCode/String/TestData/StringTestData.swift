@@ -10,3 +10,6 @@ import Foundation
 
 let string_1 = "abcdefg"
 let string_2 = "jvfdsifsffdjkHfiu"
+let string_3 = "We are happy"
+let string_4 = "Wefddfdfdfdd are happy"
+let string_5 = "   Wefd   dfdfdfdd are happy   "

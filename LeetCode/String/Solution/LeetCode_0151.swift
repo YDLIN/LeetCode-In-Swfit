@@ -48,8 +48,91 @@ import Foundation
 /********************解题********************/
 class Solution_0151 {
     func reverseWords(_ s: String) -> String {
+        // 1
+        var stringArr = removeSpace(s)
+        // 2
+        reverseString(&stringArr, startIndex: 0, endIndex: stringArr.count - 1)
+        // 3
+        reverseWord(&stringArr)
         
-        return s
+        return String(stringArr)
+    }
+    
+    /// 移除多余的空格（前后所有的空格，中间只留一个空格）
+    /// 使用双指针方法
+    func removeSpace(_ s: String) -> [Character] {
+        let ch = Array(s)
+        var left = 0
+        var right = ch.count - 1
+        // 忽略字符串前面的所有空格
+        // 前面是空格的话，就向右边移动指针，忽略当前空格
+        while ch[left] == " " {
+            left += 1
+        }
+        // 忽略字符串后面的所有空格
+        // 后面是空格的话，就向左边移动指针，忽略当前空格
+        while ch[right] == " " {
+            right -= 1
+        }
+
+        // 经过上面的操作后，左指针指向字符串第一个非空格的字符，右指针指向最后一非空格的字符
+        // 这样就删除了前后的所有空格了，接下来就是要处理中间的多余空格
+        // 思路就是，新的字符串的最后一个字符，或者原字符串中，准备加到新字符串的那个字符，这两个字符当中，只要有一个不是空格，就可以加到新的字符串当中
+        var lastArr = Array<Character>()
+        while left <= right {
+            // 准备加到新字符串当中的字符
+            let char = ch[left]
+            if char != " " || lastArr[lastArr.count - 1] != " "  {
+                lastArr.append(char)
+            }
+            // 继续往右边遍历
+            left += 1
+        }
+        
+        return lastArr
+    }
+    
+    /// 反正整个字符串
+    func reverseString(_ s: inout [Character], startIndex: Int, endIndex: Int)  {
+        var start = startIndex
+        var end = endIndex
+        while start < end {
+            (s[start], s[end]) = (s[end], s[start])
+            start += 1
+            end -= 1
+        }
+    }
+    
+    /// 再次将字符串里面的单词反转
+    func reverseWord(_ s: inout [Character]) {
+        var start = 0
+        var end = 0
+        var entry = false
+        
+        for i in 0..<s.count {
+            // 找到单词的起始位置
+            if !entry {
+                start = i
+                entry = true
+            }
+            
+            
+            // 如果单词后面有空格，那这个空格就是分词符，遇到空格，就需要把 entry 设置成 false，因为此时已经出了单词区间了
+            if entry && s[i] == " " && s[i - 1] != " " {
+                // 确定单词终止的位置
+                end = i - 1
+                entry = false
+                // 反转该单词
+                reverseString(&s, startIndex: start, endIndex: end)
+            }
+            
+            // 最后一个单词的末尾是没有空格的，到了最后一个字符，也需要把 entry 设置为 false，因为也出了单词区间了
+            if entry && (i == s.count - 1) && s[i] != " " {
+                end = i
+                entry = false
+                reverseString(&s, startIndex: start, endIndex: end)
+            }
+        }
     }
 }
 

@@ -12,7 +12,8 @@ class LeetCodeTest {
     func startTest() {
 //        leetCode_0203Test()
 //        leetCode_0707Test()
-        solution_0541_test()
+//        solution_0541_test()
+        solution_0151_test()
     }
 }
 
@@ -31,5 +32,9 @@ extension LeetCodeTest {
     func solution_0541_test() {
         Solution_0541().solution_0541_test(string_1, 2)
 //        Solution_0541().solution_0541_test(string_2, 4)
+    }
+    
+    func solution_0151_test() {
+        Solution_0151().solution_0151_test(string_6)
     }
 }

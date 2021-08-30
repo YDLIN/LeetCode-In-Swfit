@@ -11,7 +11,8 @@ import Foundation
 class OfferTest {
     func startTest() {
 //        offer29()
-        offer05()
+//        offer05()
+        offer58_II()
     }
 }
 
@@ -22,6 +23,11 @@ extension OfferTest {
     
     func offer05() {
         Offer_05().offer_05_test(string_5)
+    }
+    
+    func offer58_II() {
+        Offer_58_II().offer_58_II_test(string_1, 3)
+//        offer58_II().offer_58_II_test(string_2, 4)
     }
 }
 

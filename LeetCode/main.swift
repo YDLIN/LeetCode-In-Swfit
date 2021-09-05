@@ -9,7 +9,7 @@
 import Foundation
 
 let offer = OfferTest()
-offer.startTest()
+//offer.startTest()
 
 let leetCode = LeetCodeTest()
-//leetCode.startTest()
+leetCode.startTest()

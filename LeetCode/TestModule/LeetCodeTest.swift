@@ -13,7 +13,9 @@ class LeetCodeTest {
 //        leetCode_0203Test()
 //        leetCode_0707Test()
 //        solution_0541_test()
-        solution_0151_test()
+//        solution_0344_test()
+//        solution_0151_test()
+        solution_0028_test()
     }
 }
 
@@ -36,5 +38,16 @@ extension LeetCodeTest {
     
     func solution_0151_test() {
         Solution_0151().solution_0151_test(string_6)
+    }
+    
+    func solution_0344_test() {
+        var ch = Array(string_1)
+        Solution_0344().solution_0344_test(&ch)
+    }
+    
+    func solution_0028_test() {
+//        let index = Solution_0028().strStr(kmpString_s, kmpString_p)
+        let pos = Solution_0028().bruteForce(kmpString_s, kmpString_p)
+        print(pos)
     }
 }

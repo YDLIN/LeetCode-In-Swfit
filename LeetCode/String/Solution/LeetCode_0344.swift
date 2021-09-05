@@ -30,5 +30,14 @@ class Solution_0344 {
             l += 1
             r -= 1
         }
+        
+        print(s)
+    }
+}
+
+/********************测试代码********************/
+extension Solution_0344 {
+    func solution_0344_test(_ s: inout [Character]) {
+        reverseString(&s)
     }
 }

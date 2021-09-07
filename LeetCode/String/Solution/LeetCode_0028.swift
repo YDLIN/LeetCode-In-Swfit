@@ -113,22 +113,69 @@ class Solution_0028 {
      }
      */
     
-    func getNext(needle: [Character], len: Int) -> [Int] {
-        var next = Array<Int>()
+//    func getNext(needle: [Character], len: Int) -> [Int] {
+//        var next = Array<Int>()
+//
+//        next[0] = -1
+//        var k = -1
+//
+//        for i in 1..<len {
+//            while k != -1 && needle[k + 1] != needle[i] {
+//                k = next[k]
+//            }
+//
+//            if needle[k+1] == needle[i] {
+//                k += 1
+//            }
+//
+//            next[i] = k
+//        }
+//
+//        return next
+//    }
+    
+    /*
+     模式串：ababaab
+     所有子串（包括本身）                前缀：                           后缀：                             最大相等前后缀的长度:
+     a                                ~                               ~                                        0
+     ab                               a                               b                                        0
+     aba                              a,ab                            a,ba                                     1
+     abab                             a,ab,aba                        b,ab,bab                                 2
+     ababa                            a,ab,aba,abab                   a,ba,aba,baba                            3
+     ababaa                           a,ab,aba,abab,ababa             a,aa,baa,abaa,babaa                      1
+     ababaab                          a,ab,aba,abab,ababa,ababaa      b,ab,aab,baab,abaab,babaab               2
+     */
+    
+    /// 根据模式串来计算next数组
+    /// - Parameter needle: 模式串字符数组
+    /// - Returns: 返回数组，数组保存着模式串 所有子串 的 最大相等前后缀 的 长度
+    func getNext(needle: [Character]) -> [Int] {
+        /*
+         初始化next数组，长度肯定跟模式串一致，
+         这里先用-1填充各个元素。但是next数组的元素最后肯定都是≥0的，因为最大相等前后缀，要么没有（就是0），要么就有若干个，一旦有一个，那这个相等的前后缀就肯定大于0
+         */
+        var next = Array<Int>(repeating: -1, count: needle.count)
+        // 当模式串的子串是只有一个字符，那它就是没有前后缀，所以该子串的 最大相等前后缀 的 长度为0
+        next[0] = 0
         
-        next[0] = -1
-        var k = -1
+        var j = 0
         
-        for i in 1..<len {
-            while k != -1 && needle[k + 1] != needle[i] {
-                k = next[k]
+        for i in 1..<needle.count {
+            while j > 0 && needle[j] != needle[i] {
+                j = next[j - 1]
+            }
+            /*
+             当i = 1，j = 0时，也就是子串只有两个字符的时候，我们next数组第1个元素要么是0，要么是1
+             例如，模式串的子串是ab，那最大相等前后缀就是0；如果模式串的子串是aa，那最大相等前后缀就是1。
+             在我们的这个例子中，我们是ab，所以j依然等于0，所以当前next数组是[0,0]
+             
+             当i = 2，j = 0时，也就是子串只有三个字符的时候，我们next数组第2个元素要么是0，要么是1
+             */
+            if needle[j] == needle[i] {
+                j += 1
             }
             
-            if needle[k+1] == needle[i] {
-                k += 1
-            }
-            
-            next[i] = k
+            next[i] = j
         }
         
         return next

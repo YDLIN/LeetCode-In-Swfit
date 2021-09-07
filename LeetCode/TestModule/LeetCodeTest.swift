@@ -47,7 +47,9 @@ extension LeetCodeTest {
     
     func solution_0028_test() {
 //        let index = Solution_0028().strStr(kmpString_s, kmpString_p)
-        let pos = Solution_0028().bruteForce(kmpString_s, kmpString_p)
-        print(pos)
+//        let pos = Solution_0028().bruteForce(kmpString_s, kmpString_p)
+//        print(pos)
+        let next = Solution_0028().getNext(needle: Array("ababaab"))
+        print(next)
     }
 }

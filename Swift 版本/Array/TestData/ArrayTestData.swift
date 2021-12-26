@@ -18,6 +18,8 @@ let dichotomyArray2 = Array<Int>()
 /********************移除元素测试用例********************/
 var removeArray1 = [1, 3, 5, 6, 4, 7]
 var removeArray2 = [0, 1, 3]
+var removeArray3 = [-1, 0, 3, 5, 9, 9, 9, 9]
+var removeArray4 = [1, 3, 5, 6, 4, 7, 10, 5, 9, 11]
 
 /********************滑动窗口测试用例********************/
 var slideWindowArray1 = [2, 3, 1, 2, 4, 3]

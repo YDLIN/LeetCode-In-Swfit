@@ -35,6 +35,9 @@ class Solution_0704 {
             // 2. 计算区间中间的下标（如果left、right都比较大的情况下，left + right就有可能会溢出）
             // let middle = (left + right) / 2
             // 防溢出：
+            /*
+             A 有20块，B 有10块，将 A 多出 B 的那10块，平均一下（除2），再加上 B 原来的钱，就得到他们俩个的平均数了
+             */
              let middle = left + (right - left) / 2
             
             // 3. 判断

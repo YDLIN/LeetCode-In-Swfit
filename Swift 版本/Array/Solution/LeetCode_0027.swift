@@ -1,5 +1,5 @@
 //
-//  LeetCode_027.swift
+//  LeetCode_0027.swift
 //  LeetCode
 //
 //  Created by 余杜林 on 2021/2/2.
@@ -17,7 +17,7 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_027 {
+class Solution_0027 {
     // 暴力法：
     // [7, 7, 5, 7, 11, 12] size:6
     // [7, 5, 7, 11, 12, 12] size:5
@@ -47,8 +47,8 @@ class Solution_027 {
     
     
     //快慢指针法
-    //原数组：     [1, 3, 5, 6, 4, 7, 10, 5, 9, 11]
-    //移动后的数组：[1, 3, 6, 4, 7, 10, 9, 11, 9, 11]
+    //原数组：     [1, 3, 5, 6, 4, 7, 10, 5, 9, 11]; val = 5
+    //移动后的数组：[1, 3, 6, 4, 7, 10, 9, 11, 11, 11]
     func removeElement2(_ nums: inout [Int], _ val: Int) -> Int {
         var slowIndex = 0
         
@@ -64,15 +64,16 @@ class Solution_027 {
                 slowIndex += 1
             }
             // 如果找到目标值，那么慢指针不做任何处理，这样导致的结果就是，每次找到一个目标值，慢指针都会比快指针慢一步，所以找到多少个目标值，慢指针就慢多少步;
-            // 所以当快指针走完时，慢指针的值，就是新数组的最终长度
+            // 所以当快指针走完时（for 循环执行完毕），慢指针的值，就是新数组的最终长度
         }
         return slowIndex
     }
 }
 
 /********************测试代码********************/
-extension Solution_027 {
-    func solution_027_test(_ nums: inout [Int], _ val: Int) {
-        let _ = self.removeElement2(&nums, val)
+extension Solution_0027 {
+    func solution_0027_test(_ nums: inout [Int], _ val: Int) {
+        let size = self.removeElement2(&nums, val)
+        print(size)
     }
 }

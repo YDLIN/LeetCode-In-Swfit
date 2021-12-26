@@ -15,7 +15,8 @@ class LeetCodeTest {
 //        solution_0541_test()
 //        solution_0344_test()
 //        solution_0151_test()
-        solution_0028_test()
+//        solution_0028_test()
+        solution_0027_test()
     }
 }
 
@@ -51,5 +52,9 @@ extension LeetCodeTest {
 //        print(pos)
         let next = Solution_0028().getNext(needle: Array("ababaab"))
         print(next)
+    }
+    
+    func solution_0027_test() {
+        Solution_0027().solution_0027_test(&removeArray3, 9)
     }
 }

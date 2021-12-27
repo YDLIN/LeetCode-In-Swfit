@@ -7,7 +7,7 @@
 //
 
 #include "CPP_027.hpp"
-#include <iostream>
+//#include <iostream>
 
 // 暴力解法
 int CPP_027::removeElement(vector<int>& nums, int val) {
@@ -24,13 +24,12 @@ int CPP_027::removeElement(vector<int>& nums, int val) {
     return size;
 }
 
+// 双指针法
 int CPP_027::removeElement_2(vector<int>& nums, int val) {
     int slowIndex = 0;
     for (int fastIndex = 0; fastIndex < nums.size(); ++fastIndex) {
         if (nums[fastIndex] != val) {
-            cout << "before slowIndex: " << slowIndex << endl;
             nums[slowIndex++] = nums[fastIndex];
-            cout << "after slowIndex: " << slowIndex << endl;
         }
     }
     return slowIndex;

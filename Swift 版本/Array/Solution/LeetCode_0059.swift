@@ -1,5 +1,5 @@
 //
-//  LeetCode_059.swift
+//  LeetCode_0059.swift
 //  LeetCode
 //
 //  Created by Du on 2021/2/4.
@@ -67,15 +67,16 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_059 {
+class Solution_0059 {
     func generateMatrix(_ n: Int) -> [[Int]] {
         // 生成二维数组
         var result = [[Int]](repeating: [Int](repeating: 0, count: n), count: n)
         
+        // 定义每个圈的起始位置（行号跟列号），会随着遍历的圈缩小而变化，初始化为第0行，第0列
         var startRow = 0
         var startColumn = 0
         /*
-         表示螺旋排列有多少圈
+         表示螺旋排列，除了中点（如果有中点的话）外，外层有多少个完整的圈
          如果（n == 3），则需要循环 1 次，中间的值，需要单独处理
          如果（n == 4），则需要循环 2 次，刚好两个圈
          如果（n == 5），则需要循环 2 次，中间的值，需要单独处理
@@ -87,11 +88,11 @@ class Solution_059 {
         let mid = n / 2
         // 填充数
         var count = 1
-        // 每循环一圈，需要控制每一条边遍历的长度
+        // 偏移量，用来控制遍历的边长
         var offset = 1
-        // 行
+        // 行号，随便填充矩阵的边而变化（填充列时，行号变化）
         var row: Int
-        // 列
+        // 列号，随便填充矩阵的边而变化（填充行时，列号变化）
         var column: Int
         
         while loopCount > 0 {
@@ -102,8 +103,8 @@ class Solution_059 {
             // 填充上行的时候，行数不变，增加列数
             for c in column ..< startColumn + n - offset {
                 result[startRow][c] = count
-                count += 1
-                column += 1
+                count += 1  //填充数字递增
+                column += 1 //列号递增
             }
             
             // 模拟填充右列，从上到下(上闭下开)
@@ -148,8 +149,8 @@ class Solution_059 {
 }
 
 /********************测试代码********************/
-extension Solution_059 {
-    func solution_059_test(_ n: Int) {
+extension Solution_0059 {
+    func solution_0059_test(_ n: Int) {
         print(self.generateMatrix(n))
     }
 }

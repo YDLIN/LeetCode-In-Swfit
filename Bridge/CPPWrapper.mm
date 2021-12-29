@@ -12,6 +12,7 @@
 #import "CPP_0209.hpp"
 #import "CPP_0059.hpp"
 #import "CPP_0977.hpp"
+#import "CPP_0203.hpp"
 
 
 @implementation CPPWrapper
@@ -26,7 +27,8 @@
 //    [self test0027];
 //    [self test0209];
 //    [self test0059];
-    [self test0977];
+//    [self test0977];
+    [self test0203];
 }
 
 - (void)offerTest {
@@ -77,5 +79,12 @@
     auto sp = CPP_0977();
     vector<int> v{-4, -1, 0, 3, 10};
     sp.sortedSquares(v);
+}
+
+- (void)test0203 {
+//    auto sp = CPP_0203();
+//    
+//    sp.removeElements(NULL, 4);
+    
 }
 @end

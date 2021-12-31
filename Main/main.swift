@@ -14,8 +14,8 @@ let offer = OfferTest()
 
 // Swift 版本 - 正常的题目
 let leetCode = LeetCodeTest()
-//leetCode.startTest()
+leetCode.startTest()
 
 // C++版本 - 正常的题目
 let cpp = CPPWrapper();
-cpp.startTest();
+//cpp.startTest();

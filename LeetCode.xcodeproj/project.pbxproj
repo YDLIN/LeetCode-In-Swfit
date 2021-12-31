@@ -57,6 +57,7 @@
 		81EB40EB277AFB1300230AE0 /* CPP_0977.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EB40E9277AFB1300230AE0 /* CPP_0977.cpp */; };
 		81EB40EF277B2D7D00230AE0 /* CPP_0203.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EB40ED277B2D7D00230AE0 /* CPP_0203.cpp */; };
 		81EB4101277C1F3D00230AE0 /* chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EB4100277C1F3D00230AE0 /* chain.cpp */; };
+		81EB412B277EDDEB00230AE0 /* CPP_0707.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EB4129277EDDEB00230AE0 /* CPP_0707.cpp */; };
 		81EECB7627780E03009542BE /* CPP_0704.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EECB7427780E03009542BE /* CPP_0704.cpp */; };
 		81EECB7927780F94009542BE /* CPP_0027.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EECB7727780F94009542BE /* CPP_0027.cpp */; };
 		81EECB7F277836EA009542BE /* CPPWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 81EECB7E277836EA009542BE /* CPPWrapper.mm */; };
@@ -135,6 +136,9 @@
 		81EB40FE277C1F2B00230AE0 /* chainNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chainNode.h; sourceTree = "<group>"; };
 		81EB40FF277C1F3D00230AE0 /* chain.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = chain.hpp; sourceTree = "<group>"; };
 		81EB4100277C1F3D00230AE0 /* chain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chain.cpp; sourceTree = "<group>"; };
+		81EB4127277D429A00230AE0 /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
+		81EB4129277EDDEB00230AE0 /* CPP_0707.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPP_0707.cpp; sourceTree = "<group>"; };
+		81EB412A277EDDEB00230AE0 /* CPP_0707.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CPP_0707.hpp; sourceTree = "<group>"; };
 		81EECB7327780E03009542BE /* LeetCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeetCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		81EECB7427780E03009542BE /* CPP_0704.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPP_0704.cpp; sourceTree = "<group>"; };
 		81EECB7727780F94009542BE /* CPP_0027.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CPP_0027.cpp; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 		81C6DF3724FB48D600AF5326 = {
 			isa = PBXGroup;
 			children = (
+				81EB4128277E9F3300230AE0 /* Main */,
 				81EECB7A277836A3009542BE /* Bridge */,
 				81EECB6F27780DC1009542BE /* C++版本 */,
 				81C6DF4224FB48D600AF5326 /* Swift 版本 */,
@@ -364,8 +369,6 @@
 				815DE54A25BB1DAA00BB4328 /* Tree */,
 				80C527CA25C8F41F00B8C1D3 /* Array */,
 				8056C04C25ECD18D008D439D /* LinkedList */,
-				81C6DF4324FB48D600AF5326 /* main.swift */,
-				8038E29925C5636D005E2E99 /* Table of Contents.playground */,
 			);
 			path = "Swift 版本";
 			sourceTree = "<group>";
@@ -393,6 +396,8 @@
 			children = (
 				81EB40ED277B2D7D00230AE0 /* CPP_0203.cpp */,
 				81EB40EE277B2D7D00230AE0 /* CPP_0203.hpp */,
+				81EB4129277EDDEB00230AE0 /* CPP_0707.cpp */,
+				81EB412A277EDDEB00230AE0 /* CPP_0707.hpp */,
 			);
 			path = LinkedList;
 			sourceTree = "<group>";
@@ -412,8 +417,18 @@
 				81EB40FE277C1F2B00230AE0 /* chainNode.h */,
 				81EB4100277C1F3D00230AE0 /* chain.cpp */,
 				81EB40FF277C1F3D00230AE0 /* chain.hpp */,
+				81EB4127277D429A00230AE0 /* ListNode.h */,
 			);
 			path = "Linked List";
+			sourceTree = "<group>";
+		};
+		81EB4128277E9F3300230AE0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				81C6DF4324FB48D600AF5326 /* main.swift */,
+				8038E29925C5636D005E2E99 /* Table of Contents.playground */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		81EECB6F27780DC1009542BE /* C++版本 */ = {
@@ -545,6 +560,7 @@
 				800BFCCD25C27C5A0040C5FB /* LeetCode_226.swift in Sources */,
 				80F4689426BBBAF400549277 /* LeetCode_0704.swift in Sources */,
 				80BBE05825C803B800507D6A /* LeetCode_101.swift in Sources */,
+				81EB412B277EDDEB00230AE0 /* CPP_0707.cpp in Sources */,
 				80AEEABD26D9F6B900BF39B6 /* LeetCode_0151.swift in Sources */,
 				81D2E40F26C7AC03003BD6DD /* MatrixTestData.swift in Sources */,
 				81EB4101277C1F3D00230AE0 /* chain.cpp in Sources */,

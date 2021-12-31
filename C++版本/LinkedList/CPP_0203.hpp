@@ -10,11 +10,12 @@
 #define CPP_0203_hpp
 
 #include <stdio.h>
-//#include "Node.h"
+#include "ListNode.h"
 
-//class CPP_0203 {
-//public:
-//    ListNode* removeElements(ListNode* head, int val);
-//};
+class CPP_0203 {
+public:
+    ListNode* removeElements(ListNode* head, int val);
+    ListNode* removeElements_2(ListNode* head, int val);
+};
 
 #endif /* CPP_0203_hpp */

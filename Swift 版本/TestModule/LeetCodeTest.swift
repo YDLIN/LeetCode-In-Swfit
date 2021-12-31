@@ -20,7 +20,8 @@ class LeetCodeTest {
 //        solution_0151_test()
 //        solution_0027_test()
 //        solution_0028_test()
-        solubtion_0059_test()
+//        solubtion_0059_test()
+        leetCode_0203Test()
     }
     
     private func offerTest() {

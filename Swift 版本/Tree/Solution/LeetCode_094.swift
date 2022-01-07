@@ -29,7 +29,8 @@ class Solution_094 {
     
     
     /********************深度优先遍历********************/
-    //中序遍历（递归）
+    // 中序遍历（递归）
+    // ⭐：如果是二叉搜索树的话，中序遍历的结果是按从小到大的顺序排列
     func inorderTraversalWithRecursion(_ root: BinaryTreeClass<String>?, array: inout Array<String>) {
         if root == nil {
             return
@@ -92,12 +93,12 @@ extension Solution_094 {
         ///!!!: 递归遍历测试
         var inorderRecursionArray = Array<String>()
         //["H", "K", "D", "B", "E", "A", "I", "F", "C", "G", "J"]
-        self.inorderTraversalWithRecursion(nodeA_class, array: &inorderRecursionArray)
+        inorderTraversalWithRecursion(nodeA_class, array: &inorderRecursionArray)
         print("\(type(of:self)): inorderTraversalWithRecursion: \(inorderRecursionArray)")
 
         ///!!!: 迭代遍历测试
         var inorderIterationArray = Array<String>()
         //["H", "K", "D", "B", "E", "A", "I", "F", "C", "G", "J"]
-        print("\(type(of: self)): inorderTraversalWithIteration: \(self.inorderTraversalWithIteration(nodeA_class, array: &inorderIterationArray))")
+        print("\(type(of: self)): inorderTraversalWithIteration: \(inorderTraversalWithIteration(nodeA_class, array: &inorderIterationArray))")
     }
 }

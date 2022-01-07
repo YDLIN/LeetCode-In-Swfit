@@ -25,7 +25,7 @@ import Foundation
          (12)
  
  // 树-2
- [1,3,2,5,3,null,9]
+ [1,3,2,5,4,null,9]
  
                   (1)
                 /     \
@@ -42,6 +42,25 @@ import Foundation
              /   \   /   \
            (4)   (5)(6)  (7)
  
+ 
+ // 树-4（完全二叉树）
+ [1,2,3,4,5,6,null]
+ 
+                  (1)
+                /     \
+              (2)     (3)
+             /   \   /
+           (4)   (5)(6)
+ 
+ 
+ // 树-5
+ [1,2,null,4,5]
+ 
+                  (1)
+                /
+              (2)
+             /   \
+           (4)   (5)
  
  
  /********************N叉树测试用例********************/
@@ -119,7 +138,19 @@ let nodeA_enum = BinaryTreeEnum.node(nodeB_enum, "A", nodeC_enum)
 
 
 /********************二叉树节点（应用在LeetCode题目上）********************/
-// 二叉树：测试树-1
+/*
+ 二叉树：测试树-1
+ 
+                   (1)
+                /      \
+              (2)      (3)
+             /   \    /   \
+           (4)   (5) (6)  (7)
+           /        /   \    \
+        (8)       (9)  (10) (11)
+          \
+         (12)
+ */
 let tree1Node12 = TreeNode(12, nil, nil)
 let tree1Node08 = TreeNode(8, nil, tree1Node12)
 let tree1Node09 = TreeNode(9, nil, nil)
@@ -131,25 +162,83 @@ let tree1Node06 = TreeNode(6, tree1Node09, tree1Node10)
 let tree1Node07 = TreeNode(7, nil, tree1Node11)
 let tree1Node02 = TreeNode(2, tree1Node04, tree1Node05)
 let tree1Node03 = TreeNode(3, tree1Node06, tree1Node07)
-let tree1Node01 = TreeNode(1, tree1Node02, tree1Node03)
+let tree1Root = TreeNode(1, tree1Node02, tree1Node03)
 
-// 二叉树：测试树-2
+/*
+ 二叉树：测试树-2
+                  (1)
+                /     \
+              (3)     (2)
+             /   \       \
+           (5)   (4)     (9)
+ */
 let tree2Node05 = TreeNode(5, nil, nil)
 let tree2Node04 = TreeNode(4, nil, nil)
 let tree2Node09 = TreeNode(9, nil, nil)
 let tree2Node03 = TreeNode(3, tree2Node05, tree2Node04)
 let tree2Node02 = TreeNode(2, nil, tree2Node09)
-let tree2Node01 = TreeNode(1, tree2Node03, tree2Node02)
+let tree2Root = TreeNode(1, tree2Node03, tree2Node02)
 
-// 二叉树：测试树-3（完美二叉树）
+/*
+ 二叉树：测试树-3（完美二叉树）
+                  (1)
+                /     \
+              (2)     (3)
+             /   \   /   \
+           (4)   (5)(6)  (7)
+ 
+ */
 let tree3Node04 = TreeNode(4, nil, nil)
 let tree3Node05 = TreeNode(5, nil, nil)
 let tree3Node06 = TreeNode(6, nil, nil)
 let tree3Node07 = TreeNode(7, nil, nil)
 let tree3Node02 = TreeNode(2, tree3Node04, tree3Node05)
 let tree3Node03 = TreeNode(3, tree3Node06, tree3Node07)
-let tree3Node01 = TreeNode(1, tree3Node02, tree3Node03)
+let tree3Root = TreeNode(1, tree3Node02, tree3Node03)
 
+/*
+ 二叉树：测试树-4（完全二叉树）
+                  (1)
+                /     \
+              (2)     (3)
+             /   \   /
+           (4)   (5)(6)
+ 
+ */
+let tree4Node04 = TreeNode(4, nil, nil)
+let tree4Node05 = TreeNode(5, nil, nil)
+let tree4Node06 = TreeNode(6, nil, nil)
+let tree4Node02 = TreeNode(2, tree4Node04, tree4Node05)
+let tree4Node03 = TreeNode(3, tree4Node06, nil)
+let tree4Root = TreeNode(1, tree4Node02, tree4Node03)
+
+/*
+ 二叉树：测试树-5
+                  (1)
+                /
+              (2)
+             /   \
+           (4)   (5)
+ */
+let tree5Node05 = TreeNode(5, nil, nil)
+let tree5Node04 = TreeNode(4, nil, nil)
+let tree5Node02 = TreeNode(2, tree5Node04, tree5Node05)
+let tree5Root = TreeNode(1, tree5Node02, nil)
+
+/*
+ 二叉树：测试树-6
+                  (1)
+                /     \
+              (2)     (3)
+             /       /
+           (5)     (7)
+ 
+ */
+let tree6Node07 = TreeNode(7, nil, nil)
+let tree6Node05 = TreeNode(5, nil, nil)
+let tree6Node03 = TreeNode(3, tree6Node07, nil)
+let tree6Node02 = TreeNode(2, tree6Node05, nil)
+let tree6Root = TreeNode(1, tree6Node02, tree6Node03)
 
 /********************N叉树节点（应用在LeetCode题目上））********************/
 // N叉树：测试树-1

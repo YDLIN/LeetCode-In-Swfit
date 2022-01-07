@@ -1,5 +1,5 @@
 //
-//  LeetCode_226.swift
+//  LeetCode_0226.swift
 //  LeetCode
 //
 //  Created by Du on 2021/1/28.
@@ -15,8 +15,7 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_226 {
-    
+class Solution_0226 {
     /********************深度优先遍历********************/
     /// 递归（前序遍历）
     @discardableResult
@@ -82,7 +81,7 @@ class Solution_226 {
             return nil
         }
         
-        var queue: [TreeNode] = [rootNode]
+        var queue = [rootNode]
         
         while !queue.isEmpty {
             let size = queue.count
@@ -104,8 +103,8 @@ class Solution_226 {
     }
 }
 
-extension Solution_226 {
-    func solution_226_test(_ root: TreeNode?) {
+extension Solution_0226 {
+    func solution_0226_test(_ root: TreeNode?) {
 //        if let invertTree = self.preorderInvertTreeWithRecursion(root) {
 //            print("preorderInvertTreeWithRecursion:\n \(invertTree)")
 //        }
@@ -114,41 +113,12 @@ extension Solution_226 {
 //            print("invertTreeWithIteration:\n \(invertTree)")
 //        }
         
-//        if let invertTree = self.levelOrder(root) {
-//            print("levelOrder:\n \(invertTree)")
-//        }
-        
-        if let postorderInvertTree = self.postorderInvertTreeWithRecursion(root) {
-            print("postorderInvertTreeWithRecursion:\n \(postorderInvertTree)")
+        if let invertTree = levelOrder(root) {
+            print("levelOrder:\n \(invertTree)")
         }
+        
+//        if let postorderInvertTree = self.postorderInvertTreeWithRecursion(root) {
+//            print("postorderInvertTreeWithRecursion:\n \(postorderInvertTree)")
+//        }
     }
-    
-    /**
-     结果：
-     root: 1,
-     1-left = [root: 3,
-        3-left = [root: 7,
-            7-left = [root: 11,
-                11-left = [],
-                11-right = []],
-            7-right = []],
-        3-right = [root: 6,
-            6-left = [root: 10,
-                10-left = [],
-                10-right = []],
-            6-right = [root: 9,
-                9-left = [],
-                9-right = []]]],
-     1-right = [root: 2,
-        2-left = [root: 5,
-            5-left = [],
-            5-right = []],
-        2-right = [root: 4,
-            4-left = [],
-            4-right = [root: 8,
-                8-left = [root: 12,
-                    12-left = [],
-                    12-right = []],
-                8-right = []]]]
-     */
 }

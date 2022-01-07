@@ -19,3 +19,15 @@ leetCode.startTest()
 // C++版本 - 正常的题目
 let cpp = CPPWrapper();
 //cpp.startTest();
+
+
+//let nodeArray = [7, 4, 9, 2, 5, 8, 11, 1, 3, 10, 12]
+//let bst = BinarySearchTree<Int>()
+//
+//for i in 0..<nodeArray.count {
+//    bst.add(value: nodeArray[i])
+//}
+
+
+
+

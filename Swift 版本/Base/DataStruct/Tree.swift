@@ -34,11 +34,47 @@ public class TreeNode {
         self.right = right
         self.next = next
     }
+    
+    /// 判断是否为叶子节点
+    /// - Returns: false: 不是叶子节点；true: 是叶子节点
+    public func isLeaf() -> Bool {
+        return (left == nil && right == nil)
+    }
+    
+    /// 判断是否拥有两个子节点
+    /// - Returns: false: 小于两个子节点；true: 拥有两个子节点
+    public func hasTwoNode() -> Bool {
+        return (left != nil && right != nil)
+    }
 }
+
+//extension TreeNode: CustomStringConvertible {
+//    public var description: String {
+//        return "root: \(val), \(val)-left = [\(left?.description ?? "")], \(val)-right = [\(right?.description ?? "")]"
+//    }
+//}
 
 extension TreeNode: CustomStringConvertible {
     public var description: String {
-        return "root: \(val), \(val)-left = [\(left?.description ?? "")], \(val)-right = [\(right?.description ?? "")]"
+        diagram(for: self)
+    }
+      
+    private func diagram(for node: TreeNode?,
+                           _ top: String = "",
+                           _ root: String = "",
+                           _ bottom: String = "") -> String {
+        guard let node = node else {
+            return root + "nil\n"
+        }
+        
+        if node.left == nil && node.right == nil {
+            return root + "\(node.val)\n"
+        }
+        
+        let str = diagram(for: node.right, top + " ", top + "┌──", top + "│ ")
+        + root + "\(node.val)\n"
+        + diagram(for: node.left, bottom + "│ ", bottom + "└──", bottom + " ")
+        return String(describing: str)
     }
 }
 
@@ -63,56 +99,56 @@ public class NTreeNode {
 }
 
 /********************普通树********************/
-class ThreeNode<T> {
-    // 节点值
-    var value: T
-    // 子节点
-    var children: [ThreeNode] = []
-    // 父节点
-    weak var parent: ThreeNode?
-    
-    init(value: T) {
-        self.value = value
-    }
-    
-    // 添加节点
-    func add(child: ThreeNode) {
-        children.append(child)
-        child.parent = self
-    }
-}
+//class ThreeNode<T> {
+//    // 节点值
+//    var value: T
+//    // 子节点
+//    var children: [ThreeNode] = []
+//    // 父节点
+//    weak var parent: ThreeNode?
+//
+//    init(value: T) {
+//        self.value = value
+//    }
+//
+//    // 添加节点
+//    func add(child: ThreeNode) {
+//        children.append(child)
+//        child.parent = self
+//    }
+//}
+//
+//extension ThreeNode: CustomStringConvertible {
+//    var description: String {
+//        var text = "\(value)"
+//
+//        if !children.isEmpty {
+//            text += " {" + children.map{ $0.description}.joined(separator: ", ") + "} "
+//        }
+//
+//        return text
+//    }
+//}
+//
+//extension ThreeNode where T: Equatable {
+//    //查询
+//    func search(value: T) -> ThreeNode? {
+//        if value == self.value {
+//            return self
+//        }
+//
+//        for child in children {
+//            if let found = child.search(value: value) {
+//                return found
+//            }
+//        }
+//
+//        return nil
+//    }
+//}
 
-extension ThreeNode: CustomStringConvertible {
-    var description: String {
-        var text = "\(value)"
-        
-        if !children.isEmpty {
-            text += " {" + children.map{ $0.description}.joined(separator: ", ") + "} "
-        }
-        
-        return text
-    }
-}
 
-extension ThreeNode where T: Equatable {
-    //查询
-    func search(value: T) -> ThreeNode? {
-        if value == self.value {
-            return self
-        }
-        
-        for child in children {
-            if let found = child.search(value: value) {
-                return found
-            }
-        }
-        
-        return nil
-    }
-}
-
-
-/********************二叉树:枚举实现********************/
+/********************二叉树节点:枚举实现********************/
 public indirect enum BinaryTreeEnum<T> {
     case node(BinaryTreeEnum<T>, T, BinaryTreeEnum<T>)
     case empty
@@ -147,7 +183,7 @@ extension BinaryTreeEnum: CustomStringConvertible {
 }
 
 
-/********************二叉树:类实现********************/
+/********************二叉树节点:类实现********************/
 public class BinaryTreeClass<T> {
     public var value: T
     public var left: BinaryTreeClass?

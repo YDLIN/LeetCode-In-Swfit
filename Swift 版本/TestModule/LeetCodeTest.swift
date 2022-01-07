@@ -10,22 +10,15 @@ import Foundation
 /********************LeetCode的测试写在这里********************/
 class LeetCodeTest {
     public func startTest() {
-        leetCodeTest()
-//        offerTest()
-    }
-    
-    private func leetCodeTest() {
 //        solution_0541_test()
 //        solution_0344_test()
 //        solution_0151_test()
 //        solution_0027_test()
 //        solution_0028_test()
-//        solubtion_0059_test()
-        leetCode_0203Test()
-    }
-    
-    private func offerTest() {
-        
+//        solution_0059_test()
+//        solution_0203_test()
+        solution_0226_test()
+//        solution_0958_test()
     }
 }
 
@@ -42,12 +35,21 @@ extension LeetCodeTest {
         print(next)
     }
     
-    func solubtion_0059_test() {
+    func solution_0059_test() {
         let matrix = Solution_0059().generateMatrix(4);
         print(matrix);
     }
     
-    func leetCode_0203Test() {
+    func solution_0102_test() {
+        let nodeArray = [7, 4, 9, 2, 8]
+        let bst = BinarySearchTree<Int>()
+        for i in 0..<nodeArray.count {
+            bst.add(value: nodeArray[i])
+        }
+        Solution_102().solution_102_test(nil)
+    }
+    
+    func solution_0203_test() {
         let linkedList = removeElementsInLinkedList()
         Solution_0203().solution_0203_test(linkedList.head, 6)
     }
@@ -67,8 +69,20 @@ extension LeetCodeTest {
         Solution_0151().solution_0151_test(string_6)
     }
     
+    func solution_0226_test() {
+        Solution_0226().solution_0226_test(tree6Root)
+    }
+    
     func solution_0344_test() {
         var ch = Array(string_1)
         Solution_0344().solution_0344_test(&ch)
+    }
+    
+    func solution_0958_test() {
+        Solution_0958().solution_0958_test(tree1Root)
+        Solution_0958().solution_0958_test(tree3Root)
+        Solution_0958().solution_0958_test(tree4Root)
+        Solution_0958().solution_0958_test(tree5Root)
+        Solution_0958().solution_0958_test(tree6Root)
     }
 }

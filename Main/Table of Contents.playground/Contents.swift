@@ -5,6 +5,7 @@
      - [0094. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
      - [0101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
      - [0102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+     - [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
      - [0107. 二叉树的层序遍历 II](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
      - [0114. 二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/)
      - [0116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/)
@@ -18,6 +19,7 @@
      - [0589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)
      - [0590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/)
      - [0637. 二叉树的层平均值](https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/)
+     - [0958. 二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/)
  
  - [数组](https://leetcode-cn.com/tag/array/)
      - [0027. 移除元素](https://leetcode-cn.com/problems/remove-element/)

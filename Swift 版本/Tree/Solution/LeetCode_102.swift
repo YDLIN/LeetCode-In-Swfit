@@ -16,7 +16,7 @@ import Foundation
 
 /********************解题********************/
 class Solution_102 {
-    func levelOrder(_ root: TreeNode?) -> [[Int]] {
+    func levelOrderTraversal(_ root: TreeNode?) -> [[Int]] {
         guard let rootNode = root else {
             return []
         }
@@ -49,7 +49,6 @@ class Solution_102 {
 /********************测试代码********************/
 extension Solution_102 {
     func solution_102_test(_ node: TreeNode?) {
-        let resultArray = self.levelOrder(node)
-        print(resultArray)
+        print(levelOrderTraversal(node))
     }
 }

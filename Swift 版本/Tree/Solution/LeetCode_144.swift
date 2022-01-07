@@ -34,9 +34,10 @@ class Solution_144 {
         guard let root = root else {
             return
         }
-        
+        // 单次递归的逻辑处理
         array.append(root.value)
         
+        // 递归
         preorderTraversalWithRecursion(root.left, array: &array)
         preorderTraversalWithRecursion(root.right, array: &array)
     }
@@ -88,13 +89,13 @@ extension Solution_144 {
         ///!!!: 递归遍历测试
         var preorderRecursionArray = Array<String>()
         //["A", "B", "D", "H", "K", "E", "C", "F", "I", "G", "J"]
-        self.preorderTraversalWithRecursion(nodeA_class, array: &preorderRecursionArray)
+        preorderTraversalWithRecursion(nodeA_class, array: &preorderRecursionArray)
         print("\(type(of: self)): preorderTraversalWithRecursion: \(preorderRecursionArray)")
 
         ///!!!: 迭代遍历测试
         var preorderIterationArray = Array<String>()
         //["A", "B", "D", "H", "K", "E", "C", "F", "I", "G", "J"]
-        print("\(type(of: self)): preorderTraversalWithIteration: \(self.preorderTraversalWithIteration(nodeA_class, array: &preorderIterationArray))")
+        print("\(type(of: self)): preorderTraversalWithIteration: \(preorderTraversalWithIteration(nodeA_class, array: &preorderIterationArray))")
     }
 }
 

@@ -18,15 +18,13 @@ import Foundation
 class Solution_145 {
     //后序遍历（递归）
     func postorderTraversalWithRecursion(_ root: BinaryTreeClass<String>?, array: inout Array<String>) {
-        if root == nil {
+        guard let root = root else {
             return
         }
         
-        postorderTraversalWithRecursion(root?.left, array: &array)
-        postorderTraversalWithRecursion(root?.right, array: &array)
-        if let rootValue = root?.value {
-            array.append(rootValue)
-        }
+        postorderTraversalWithRecursion(root.left, array: &array)
+        postorderTraversalWithRecursion(root.right, array: &array)
+        array.append(root.value)
     }
     
     //后序遍历（迭代）

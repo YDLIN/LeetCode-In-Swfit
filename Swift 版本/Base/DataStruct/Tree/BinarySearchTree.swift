@@ -9,7 +9,19 @@
 import Foundation
 
 /********************二叉搜索树的节点**********************/
-public class BSTNode<T> {
+public class BSTNode<T: Comparable>: Comparable {
+    public static func == (lhs: BSTNode<T>, rhs: BSTNode<T>) -> Bool {
+        return lhs.value == rhs.value
+    }
+    
+    public static func < (lhs: BSTNode<T>, rhs: BSTNode<T>) -> Bool {
+        return lhs.value < rhs.value
+    }
+    
+    public static func > (lhs: BSTNode<T>, rhs: BSTNode<T>) -> Bool {
+        return lhs.value > rhs.value
+    }
+    
     var value: T
     var left: BSTNode<T>?
     var right: BSTNode<T>?
@@ -77,7 +89,8 @@ public class BinarySearchTree<T: Comparable> {
     }
     
     public func clear() {
-        
+        root = nil
+        nodeCount = 0
     }
     
     /// 添加节点
@@ -131,11 +144,11 @@ public class BinarySearchTree<T: Comparable> {
     }
     
     public func remove(element: T) {
-        
+        remove(node: getNode(element: element))
     }
     
     public func contains(element: T) -> Bool {
-        return false
+        return getNode(element: element) != nil
     }
 }
 
@@ -220,7 +233,7 @@ extension BinarySearchTree {
 }
 
 extension BinarySearchTree {
-    // 递归
+    // 递归求树的高度
     private func treeHeightWithRecursion() -> Int {
         return height(with: root)
     }
@@ -232,7 +245,7 @@ extension BinarySearchTree {
         return 1 + max(height(with: node.left), height(with: node.right))
     }
     
-    // 迭代
+    // 迭代求树的高度
     private func treeHeightWithIteration() -> Int {
         guard let rootNode = root else {
             return 0
@@ -265,5 +278,165 @@ extension BinarySearchTree {
             }
         }
         return height
+    }
+    
+    
+    /// 查找前驱节点
+    /// 前驱节点的意思就是：中序遍历时的前一个节点
+    /// - Parameter node: 需要找前驱节点的节点
+    /// - Returns: 返回前驱节点，可能为 nil
+    private func predecessor(node: BSTNode<T>?) -> BSTNode<T>? {
+        guard var node = node else {
+            return nil
+        }
+        
+        /*
+         情况一：
+         如果有左子树，根据中序遍历的顺序，前驱就是该左子树中，最右边的那个节点（如果是二叉搜索树，就是该左子树中值最大的那个节点）
+         */
+        // 前驱节点
+        var preNode = node.left
+        if preNode != nil {
+            while preNode!.right != nil {
+                preNode = preNode!.right!
+            }
+            return preNode
+        }
+
+        /*
+         情况二：
+         来到情况二，就说明左子树是空，因为中序遍历是左中右，那左都为空了，那前驱节点只能从父节点里面找。那就是情况三了
+         
+         情况三：
+         如果父节点不为空，那父节点一定就是该节点的前驱节点吗？不一定。
+         1、如果该节点是父节点的右子树，那父节点就是前驱节点（如下图的节点12）；
+         2、如果该节点是父节点的左子树，那前驱节点就(该节点的父节点)或者是(该节点的父节点的父节点...)，一直找到什么时候才停止呢？根据第一点就直到，我们只需一直找到该节点是父节点的右子树就行，前驱节点就是那个父节点了（如下图的节点9）（PS: 如果父节点是空，那就是返回空）
+         
+         图例：
+             (8)
+                \
+                (13)
+               /
+              (10)
+             /   \
+            (9)  (12)
+                /
+               (11)
+         */
+        
+        while node.parent != nil && node == node.parent!.left {
+            node = node.parent!
+        }
+        // 能来到这里，表示 node.parent == nil 或者 node == node.parent.right
+        /*
+        // 1、node.parent == nil
+        if node.parent == nil {
+            return nil
+        } else {// 当前节点是父节点的右子树，那前驱节点就是父节点
+            return node.parent
+        }
+         */
+        
+        // 统一上面情况，也就是返回node.parent
+        return node.parent
+    }
+    
+    private func successor(node: BSTNode<T>?) -> BSTNode<T>? {
+        guard var node = node else {
+            return nil
+        }
+        
+        // 后驱节点
+        var successorNode = node.right
+        if successorNode != nil {
+            while successorNode!.left != nil {
+                successorNode = successorNode!.left!
+            }
+            return successorNode
+        }
+        
+        while node.parent != nil && node == node.parent!.right {
+            node = node.parent!
+        }
+        
+        return node.parent
+    }
+    
+    
+    /// 根据给定的值，来获取节点
+    /// - Parameter element: 给定的值
+    /// - Returns: 获取到的节点
+    private func getNode(element: T) -> BSTNode<T>? {
+        var curNode = root
+        while curNode != nil {
+            if curNode!.value == element {
+                return curNode
+            } else if curNode!.value > element {// 要找的元素在左子树
+                curNode = curNode?.left
+            } else {// 要找的元素在右子树
+                curNode = curNode?.right
+            }
+        }
+        // 来到这里表示没找到，所以返回 nil
+        return nil
+    }
+    
+    /// 移除节点
+    /// - Parameter node: 需要移除的节点
+    private func remove(node: BSTNode<T>?) {
+        guard var node = node else {
+            return
+        }
+        
+        // 节点数减1
+        nodeCount -= 1
+        
+        // 度为2的节点需要特殊处理
+        if node.left != nil && node.right != nil {
+            // 找到度为2的节点的前驱节点（这里也可以用后驱节点）
+            if let preNode = predecessor(node: node) {
+                // 将前驱节点的值，覆盖度为2的节点的值
+                node.value = preNode.value
+                /*
+                 用 node 指向前驱节点，就是统一后面的删除操作。
+                 因为传进来的参数 node，如果它不是度为2的节点，就不会进来这个 if 代码块
+                 而是直接执行后面的删除操作
+                 */
+                node = preNode
+            }
+        }
+        
+        // 删除 node 节点（这里node的度，不是0，就是1）
+        let replacementNode = node.left != nil ? node.left : node.right
+        
+        /*
+         一、度为1的节点,该节点所处的位置有一下三种情况：
+            1、该节点是根节点
+            2、该节点是左节点
+            3、该节点是右节点
+         二、replacementNode就是用来替换度为1的那个节点
+         */
+        if replacementNode != nil {
+            // 替换节点的父节点
+            replacementNode?.parent = node.parent
+            // 替换父节点的左节点或者右节点
+            if node.parent == nil {
+                root = replacementNode
+            } else if node == node.parent?.left {// 如果删除的节点，是父节点的左节点，那替换节点应该也是父节点的左节点
+                node.parent?.left = replacementNode
+            } else {// node == node.parent?.right
+                node.parent?.right = replacementNode
+            }
+        } else {//度为0的节点
+            if node.parent == nil {// node 是叶子节点，并且是根节点
+                root = nil
+            } else {// node 是叶子节点，但不是根节点
+                if node == node.parent?.left {// 如果要删除的叶子节点是处于左边
+                    node.parent?.left = nil
+                } else {// 如果要删除的叶子节点是处于右边
+                    node.parent?.right = nil
+                }
+            }
+        }
     }
 }

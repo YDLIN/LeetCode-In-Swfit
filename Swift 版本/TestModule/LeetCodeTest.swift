@@ -10,14 +10,17 @@ import Foundation
 /********************LeetCode的测试写在这里********************/
 class LeetCodeTest {
     public func startTest() {
-//        solution_0541_test()
-//        solution_0344_test()
-//        solution_0151_test()
 //        solution_0027_test()
 //        solution_0028_test()
 //        solution_0059_test()
+        solution_0105_test()
+//        solution_0106_test()
+//        solution_0145_test()
+//        solution_0151_test()
 //        solution_0203_test()
-        solution_0226_test()
+//        solution_0226_test()
+//        solution_0344_test()
+//        solution_0541_test()
 //        solution_0958_test()
     }
 }
@@ -47,6 +50,19 @@ extension LeetCodeTest {
             bst.add(value: nodeArray[i])
         }
         Solution_102().solution_102_test(nil)
+    }
+    
+    func solution_0105_test() {
+        let _ = Solution_0105().test()
+    }
+    
+    func solution_0106_test() {
+//        let _ = Solution_0106().test()
+        let _ = Solution_0106().test2()
+    }
+    
+    func solution_0145_test() {
+        Solution_145().test()
     }
     
     func solution_0203_test() {

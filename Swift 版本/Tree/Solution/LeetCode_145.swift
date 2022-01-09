@@ -70,7 +70,7 @@ class Solution_145 {
 
 /********************测试代码********************/
 extension Solution_145 {
-    func solution_145_test() {
+    func test() {
         ///!!!: 递归遍历测试
         var postorderRecursionArray = Array<String>()
         //["K", "H", "D", "E", "B", "I", "F", "J", "G", "C", "A"]

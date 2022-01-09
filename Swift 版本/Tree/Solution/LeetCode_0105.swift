@@ -17,30 +17,60 @@ import Foundation
 /********************解题********************/
 class Solution_0105 {
     func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
-        if preorder.count == 0 || inorder.count == 0 {
+        return helper(preorder: preorder,
+                      preorderBegin: 0,
+                      preorderEnd: preorder.count,
+                      inorder: inorder,
+                      inorderBegin: 0,
+                      inorderEnd: inorder.count)
+    }
+    
+    func helper(preorder: [Int], preorderBegin: Int, preorderEnd: Int, inorder: [Int], inorderBegin: Int, inorderEnd: Int) -> TreeNode? {
+        if preorderBegin == preorderEnd {
             return nil
         }
         
-        let root = TreeNode(preorder.first!);
-        var subInorder = [Int]()
-        var subPreorder = [Int]()
-        for i in inorder {
-            if i == root.val {
-                if let index = subInorder.firstIndex(of: i) {
-                    subPreorder.remove(at: index)
-                }
-                break
-            }
-            subInorder.append(i)
+        // 前序遍历数组的第一个元素作为分割点
+        let rootValue = preorder[preorderBegin]
+        let root = TreeNode(rootValue)
+        
+        
+        if preorderEnd - preorderBegin == 1 {
+            print("return root: ")
+            print(root.val)
+            return root
         }
-        return buildTree(subPreorder, subInorder)
+        
+        var index = 0 // 从中序遍历数组中找到根节点的下标
+        if let ind = inorder.firstIndex(of: rootValue) {
+            index = ind
+        }
+        
+        // 递归
+        root.left = helper(preorder: preorder,
+                           preorderBegin: preorderBegin + 1,
+                           preorderEnd: preorderBegin + 1 + index - inorderBegin,
+                           inorder: inorder,
+                           inorderBegin: inorderBegin,
+                           inorderEnd: index)
+        root.right = helper(preorder: preorder,
+                            preorderBegin: preorderBegin + 1 + index - inorderBegin,
+                            preorderEnd: preorderEnd,
+                            inorder: inorder,
+                            inorderBegin: index + 1,
+                            inorderEnd: inorderEnd)
+        return root
     }
 }
 
 
 /********************测试代码********************/
 extension Solution_0105 {
-    func solution_0105_test(_ node: TreeNode?) {
-        
+    func test() {
+        let preorder = [1, 2, 4, 8, 12, 5, 3, 6, 9, 10, 7, 11]
+        let inorder = [8, 12, 4, 2, 5, 1, 9, 6, 10, 3, 7, 11]
+        if let node = buildTree(preorder, inorder) {
+            print(node)
+        }
     }
 }

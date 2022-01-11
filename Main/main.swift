@@ -26,16 +26,17 @@ let nodeArray2 = [8, 4, 13, 2, 6, 10, 1, 3, 5, 7, 9, 12, 11]
 let nodeArray3 = [9, 11, 10, 12]
 let bst = BST()
 
-for i in 0..<nodeArray3.count {
-//    let node = BSTNode(value: nodeArray2[i], parent: nil)
-    bst.add(value: nodeArray3[i])
+for i in 0..<nodeArray2.count {
+    bst.add(nodeArray2[i])
 }
+print(bst)
+print(bst.remove(element: 5))
+print(bst.remove(element: 6))
+print(bst.remove(element: 3))
+print(bst.remove(element: 4))
+print(bst)
+print(bst.size)
 
-print(bst)
-bst.remove(element: 9)
-//bst.remove(element: 12)
-//print(bst.levelOrder())
-print(bst)
 
 
 

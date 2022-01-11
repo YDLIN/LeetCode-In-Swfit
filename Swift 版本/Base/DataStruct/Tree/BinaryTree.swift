@@ -7,55 +7,6 @@
 //
 
 import Foundation
-// 这个文件包含是二叉树节点，和二叉树的定义
-/********************二叉树节点**********************/
-public class BinaryTreeNode: Comparable {
-    public static func < (lhs: BinaryTreeNode, rhs: BinaryTreeNode) -> Bool {
-        return  lhs.value < rhs.value
-    }
-    
-    public static func > (lhs: BinaryTreeNode, rhs: BinaryTreeNode) -> Bool {
-        return  lhs.value > rhs.value
-    }
-    
-    public static func == (lhs: BinaryTreeNode, rhs: BinaryTreeNode) -> Bool {
-        return  lhs.value == rhs.value
-    }
-    
-    var value: Int
-    var left: BinaryTreeNode?
-    var right: BinaryTreeNode?
-    var parent: BinaryTreeNode?
-    init(value: Int, parent: BinaryTreeNode?) {
-        self.value = value
-        self.parent = parent
-    }
-}
-
-extension BinaryTreeNode: CustomStringConvertible {
-    public var description: String {
-        diagram(for: self)
-    }
-      
-    private func diagram(for node: BinaryTreeNode?,
-                           _ top: String = "",
-                           _ root: String = "",
-                           _ bottom: String = "") -> String {
-        guard let node = node else {
-            return root + "nil\n"
-        }
-        
-        if node.left == nil && node.right == nil {
-            return root + "\(node.value)\n"
-        }
-        
-        let str = diagram(for: node.right, top + " ", top + "┌──", top + "│ ")
-        + root + "\(node.value)\n"
-        + diagram(for: node.left, bottom + "│ ", bottom + "└──", bottom + " ")
-        return String(describing: str)
-    }
-}
-
 /********************二叉树**********************/
 public class BinaryTree {
     /// 节点总数
@@ -69,17 +20,16 @@ public class BinaryTree {
     /// 树的高度
     public var height: Int {
         get {
-//            return treeHeightWithRecursion()
             return treeHeightWithIteration()
         }
     }
     
     /// 根节点
-    public var root: BinaryTreeNode?
+    public var root: BinaryNode?
     
     init() {}
     
-    init(root: BinaryTreeNode?) {
+    init(root: BinaryNode?) {
         self.nodeCount = 0
         self.root = root
     }
@@ -108,44 +58,45 @@ extension BinaryTree: CustomDebugStringConvertible {
 // 遍历
 extension BinaryTree {
     /// 前序遍历-递归
-    public func preorder() {
-        preorderTraversal(node: root)
+    public func preorder(visit: (Int) -> (Void)) {
+        traversalPreOrder(node: root, visit: visit)
     }
-    private func preorderTraversal(node: BinaryTreeNode?) {
+    
+    private func traversalPreOrder(node: BinaryNode?, visit: (Int) -> (Void)) {
         guard let node = node else {
             return
         }
-        print(node.value)
-        preorderTraversal(node: node.left)
-        preorderTraversal(node: node.right)
+        visit(node.value)
+        traversalPreOrder(node: node.left, visit: visit)
+        traversalPreOrder(node: node.right, visit: visit)
     }
     
     /// 中序遍历-递归
-    public func inorder() {
-         inorderTraversal(node: root)
+    public func inorder(visit: (Int) -> (Void)) {
+        traversalInOrder(node: root, visit: visit)
     }
     
-    private func inorderTraversal(node: BinaryTreeNode?) {
+    private func traversalInOrder(node: BinaryNode?, visit: (Int) -> (Void)) {
         guard let node = node else {
             return
         }
-        inorderTraversal(node: node.left)
-        print(node.value)
-        inorderTraversal(node: node.right)
+        traversalInOrder(node: node.left, visit: visit)
+        visit(node.value)
+        traversalInOrder(node: node.right, visit: visit)
     }
     
     /// 中序遍历-递归
-    public func postorder() {
-        postorderTraversal(node: root)
+    public func postorder(visit: (Int) -> (Void)) {
+        traversalPostOrder(node: root, visit: visit)
     }
     
-    private func postorderTraversal(node: BinaryTreeNode?) {
+    private func traversalPostOrder(node: BinaryNode?, visit: (Int) -> (Void)) {
         guard let node = node else {
             return
         }
-        postorderTraversal(node: node.left)
-        postorderTraversal(node: node.right)
-        print(node.value)
+        traversalPostOrder(node: node.left, visit: visit)
+        traversalPostOrder(node: node.right, visit: visit)
+        visit(node.value)
     }
     
     /// 层序遍历-迭代
@@ -175,19 +126,22 @@ extension BinaryTree {
 }
 
 extension BinaryTree {
-    // 递归求树的高度
+    /// 递归求树的高度
+    /// - Returns: 树的高度
     private func treeHeightWithRecursion() -> Int {
-        return height(with: root)
+        return height(of: root)
     }
     
-    private func height(with node: BinaryTreeNode?) -> Int {
+    // 如果是只有一个节点的树，高度是1，有些教程是0
+    private func height(of node: BinaryNode?) -> Int {
         guard let node = node else {
             return 0
         }
-        return 1 + max(height(with: node.left), height(with: node.right))
+        return 1 + max(height(of: node.left), height(of: node.right))
     }
     
-    // 迭代求树的高度
+    /// 迭代求树的高度
+    /// - Returns: 树的高度
     private func treeHeightWithIteration() -> Int {
         guard let rootNode = root else {
             return 0
@@ -227,7 +181,7 @@ extension BinaryTree {
     /// 前驱节点的意思就是：中序遍历时的前一个节点
     /// - Parameter node: 需要找前驱节点的节点
     /// - Returns: 返回前驱节点，可能为 nil
-    public func predecessor(node: BinaryTreeNode?) -> BinaryTreeNode? {
+    public func predecessor(node: BinaryNode?) -> BinaryNode? {
         guard var node = node else {
             return nil
         }
@@ -285,7 +239,7 @@ extension BinaryTree {
         return node.parent
     }
     
-    public func successor(node: BinaryTreeNode?) -> BinaryTreeNode? {
+    public func successor(node: BinaryNode?) -> BinaryNode? {
         guard var node = node else {
             return nil
         }

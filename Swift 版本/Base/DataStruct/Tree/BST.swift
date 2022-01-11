@@ -9,12 +9,12 @@
 import Foundation
 // 这个文件是二叉搜索树的定义
 public class BST: BinaryTree {
-    /// 添加节点
+    /// 使用迭代添加节点
     /// - Parameter value: 新节点的值
-    public func add(value: Int) {
+    public func add(_ value: Int) {
         // 1、如果根节点为空，则添加的元素就是根节点
         if root == nil {
-            root = BinaryTreeNode(value: value, parent: nil)
+            root = BinaryNode(value: value, parent: nil)
             nodeCount += 1
             return
         }
@@ -43,7 +43,7 @@ public class BST: BinaryTree {
         
         // 3、找到父节点后，看看新的节点要插入到什么位置
         // 创建新的节点
-        let newNode = BinaryTreeNode(value: value, parent: parent)
+        let newNode = BinaryNode(value: value, parent: parent)
         // 插入
         if cmp > 0 {
             parent?.right = newNode
@@ -55,12 +55,35 @@ public class BST: BinaryTree {
         nodeCount += 1
     }
     
+    /// 移除节点
+    /// - Parameter element: 需要移除节点的值
     public func remove(element: Int) {
         remove(node: getNode(element: element))
     }
     
+    /// 是否包含节点，，该函数时间复杂度是 O(logn)，推荐使用
+    /// - Parameter element: 需要查找节点的值
+    /// - Returns: true: 包含；false: 不包含
     public func contains(element: Int) -> Bool {
         return getNode(element: element) != nil
+    }
+    
+    /// 是否包含节点，该函数时间复杂度是 O(n)，不推荐使用
+    /// - Parameter value: 需要查找节点的值
+    /// - Returns: true: 包含；false: 不包含
+    public func contains(value: Int) -> Bool {
+        guard root != nil else {
+            return false
+        }
+        
+        var found = false
+        inorder {
+            if $0 == value {
+                found = true
+            }
+        }
+        
+        return found
     }
 }
 
@@ -68,7 +91,7 @@ extension BST {
     /// 根据给定的值，来获取节点
     /// - Parameter element: 给定的值
     /// - Returns: 获取到的节点
-    private func getNode(element: Int) -> BinaryTreeNode? {
+    private func getNode(element: Int) -> BinaryNode? {
         var curNode = root
         while curNode != nil {
             if curNode!.value == element {
@@ -85,7 +108,7 @@ extension BST {
     
     /// 移除节点
     /// - Parameter node: 需要移除的节点
-    private func remove(node: BinaryTreeNode?) {
+    private func remove(node: BinaryNode?) {
         if node == nil {
             return
         }

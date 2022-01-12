@@ -23,20 +23,18 @@ let cpp = CPPWrapper();
 
 let nodeArray = [7, 4, 9, 2, 5, 8, 11, 1, 3, 10, 12]
 let nodeArray2 = [8, 4, 13, 2, 6, 10, 1, 3, 5, 7, 9, 12, 11]
-let nodeArray3 = [9, 11, 10, 12]
-let bst = BST()
+let nodeArray3 = [28, 74, 42, 50, 75, 67, 95, 94, 40, 27, 8, 13, 97, 85, 49]
+let nodeArray4 = [85, 19 ,69, 3, 7, 99, 95]
+let avl = AVLTree()
 
-for i in 0..<nodeArray2.count {
-    bst.add(nodeArray2[i])
+for i in 0..<nodeArray4.count {
+    avl.add(nodeArray4[i])
 }
-print(bst)
-print(bst.remove(element: 5))
-print(bst.remove(element: 6))
-print(bst.remove(element: 3))
-print(bst.remove(element: 4))
-print(bst)
-print(bst.size)
 
+avl.remove(element: 99)
+avl.remove(element: 85)
+avl.remove(element: 95)
+print(avl)
 
 
 

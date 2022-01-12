@@ -16,6 +16,7 @@ public class BST: BinaryTree {
         if root == nil {
             root = BinaryNode(value: value, parent: nil)
             nodeCount += 1
+            afterAdd(node: root)
             return
         }
         
@@ -53,6 +54,8 @@ public class BST: BinaryTree {
         
         // 4、节点数加一
         nodeCount += 1
+        
+        afterAdd(node: newNode)
     }
     
     /// 移除节点
@@ -84,6 +87,17 @@ public class BST: BinaryTree {
         }
         
         return found
+    }
+    
+    /// 添加 node 之后的调整
+    /// - Parameter node: 新添加的节点
+    func afterAdd(node: BinaryNode?) {
+        // 父类不实现，交给子类 AVLTree 去实现具体的逻辑
+    }
+    
+    /// 删除 node 之后的调整
+    func afterRemove(node: BinaryNode?) {
+        // 父类不实现，交给子类 AVLTree 去实现具体的逻辑
     }
 }
 
@@ -131,11 +145,10 @@ extension BST {
                  */
                 node = preNode
             }
-            
         }
         
         // 删除 node 节点（这里node的度，不是0，就是1）
-        let replacementNode = node?.left != nil ? node?.left : node?.right
+        let replacementNode = (node?.left != nil) ? node?.left : node?.right
         
         /*
          一、度为1的节点,该节点所处的位置有一下三种情况：
@@ -155,15 +168,21 @@ extension BST {
             } else {// node == node.parent?.right
                 node?.parent?.right = replacementNode
             }
+            // 删除节点后才进行平衡操作
+            afterRemove(node: node)
         } else {//度为0的节点
             if node?.parent == nil {// node 是叶子节点，并且是根节点
                 root = nil
+                // 删除节点后才进行平衡操作
+                afterRemove(node: node)
             } else {// node 是叶子节点，但不是根节点
                 if node == node?.parent?.left {// 如果要删除的叶子节点是处于左边
                     node?.parent?.left = nil
                 } else {// 如果要删除的叶子节点是处于右边
                     node?.parent?.right = nil
                 }
+                // 删除节点后才进行平衡操作
+                afterRemove(node: node)
             }
         }
     }

@@ -30,6 +30,30 @@ public class BinaryNode: Comparable {
         self.value = value
         self.parent = parent
     }
+    
+    /// 是否是叶子节点
+    /// - Returns:  true: 是叶子节点；false：不是叶子节点
+    func isLeaf() -> Bool {
+        return left == nil && right == nil
+    }
+    
+    /// 度是否为2的节点
+    /// - Returns: true：是度为2的节点；false：不是度为2的节点
+    func hasTwoChildren() -> Bool {
+        return left != nil && right != nil
+    }
+    
+    /// 是否是父节点的左节点
+    /// - Returns: true：是左节点；false：不是左节点
+    func isLeftChild() -> Bool {
+        return parent != nil && self == parent?.left
+    }
+    
+    /// 是否是父节点的右节点
+    /// - Returns: true：是右节点；false：不是右节点
+    func isRightChild() -> Bool {
+        return parent != nil && self == parent?.right
+    }
 }
 
 extension BinaryNode: CustomStringConvertible {

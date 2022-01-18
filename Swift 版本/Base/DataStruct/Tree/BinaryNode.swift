@@ -54,6 +54,20 @@ public class BinaryNode: Comparable {
     func isRightChild() -> Bool {
         return parent != nil && self == parent?.right
     }
+    
+    /// 获取兄弟节点
+    /// - Returns: 兄弟节点
+    func sibling() -> BinaryNode? {
+        if isLeftChild() {
+            return self.parent?.right
+        }
+        if isRightChild() {
+            return self.parent?.left
+        }
+        
+        // 父节点为空，所以没有兄弟节点
+        return nil
+    }
 }
 
 extension BinaryNode: CustomStringConvertible {
@@ -73,7 +87,8 @@ extension BinaryNode: CustomStringConvertible {
             return root + "\(node.value)\n"
         }
         
-        let str = diagram(for: node.right, top + " ", top + "┌──", top + "│ ")
+        let str =
+        diagram(for: node.right, top + " ", top + "┌──", top + "│ ")
         + root + "\(node.value)\n"
         + diagram(for: node.left, bottom + "│ ", bottom + "└──", bottom + " ")
         return String(describing: str)

@@ -95,8 +95,12 @@ public class BST: BinaryTree {
         // 父类不实现，交给子类 AVLTree 去实现具体的逻辑
     }
     
+    
     /// 删除 node 之后的调整
-    func afterRemove(node: BinaryNode?) {
+    /// - Parameters:
+    ///   - node: 需要被删除的节点
+    ///   - replaceNode: 用来替代被删除节点的节点
+    func afterRemove(node: BinaryNode?, replaceNode: BinaryNode?) {
         // 父类不实现，交给子类 AVLTree 去实现具体的逻辑
     }
 }
@@ -169,20 +173,20 @@ extension BST {
                 node?.parent?.right = replacementNode
             }
             // 删除节点后才进行平衡操作
-            afterRemove(node: node)
-        } else {//度为0的节点
+            afterRemove(node: node, replaceNode: replacementNode)
+        } else {//度为0的节点（叶子节点）
             if node?.parent == nil {// node 是叶子节点，并且是根节点
                 root = nil
-                // 删除节点后才进行平衡操作
-                afterRemove(node: node)
+                // 删除节点后才进行平衡操作（删除根节点，是没有其他节点去替代的）
+                afterRemove(node: node, replaceNode: nil)
             } else {// node 是叶子节点，但不是根节点
                 if node == node?.parent?.left {// 如果要删除的叶子节点是处于左边
                     node?.parent?.left = nil
                 } else {// 如果要删除的叶子节点是处于右边
                     node?.parent?.right = nil
                 }
-                // 删除节点后才进行平衡操作
-                afterRemove(node: node)
+                // 删除节点后才进行平衡操作（删除叶子节点，是没有其他节点去替代的）
+                afterRemove(node: node, replaceNode: nil)
             }
         }
     }

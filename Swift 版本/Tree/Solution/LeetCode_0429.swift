@@ -1,5 +1,5 @@
 //
-//  LeetCode_429.swift
+//  LeetCode_0429.swift
 //  LeetCode
 //
 //  Created by Du on 2021/1/27.
@@ -16,25 +16,28 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_429 {
+class Solution_0429 {
     func levelOrder(_ root: NTreeNode?) -> [[Int]] {
-        guard let rootNode = root else {
+        guard let root = root else {
             return []
         }
         
         var resultArray = [[Int]]()
-        var queue: [NTreeNode] = [rootNode]
+        var queue = [root]
         
         while !queue.isEmpty {
-            let size = queue.count
             var levelArray = [Int]()
             
-            for _ in 0..<size {
+            for _ in 0..<queue.count {
                 let firstNode = queue.removeFirst()
                 levelArray.append(firstNode.val)
                 
-                _ = firstNode.children.map {
-                    queue.append($0)
+                // n叉树因为不确定有多少个子节点，所以不是获取它的左右子节点，而是遍历它的所有子节点
+//                _ = firstNode.children.map {
+//                    queue.append($0)
+//                }
+                for subNode in firstNode.children {
+                    queue.append(subNode)
                 }
             }
             resultArray.append(levelArray)
@@ -45,9 +48,8 @@ class Solution_429 {
 
 
 /********************测试代码********************/
-extension Solution_429 {
-    func solution_429_test(_ node: NTreeNode?) {
-        let resultArray = self.levelOrder(node)
-        print(resultArray)
+extension Solution_0429 {
+    func test() {
+        print(levelOrder(nTree2Root))
     }
 }

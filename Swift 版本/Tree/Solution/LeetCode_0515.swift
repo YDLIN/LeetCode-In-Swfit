@@ -1,5 +1,5 @@
 //
-//  LeetCode_515.swift
+//  LeetCode_0515.swift
 //  LeetCode
 //
 //  Created by Du on 2021/1/30.
@@ -15,7 +15,7 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_515 {
+class Solution_0515 {
     func largestValues(_ root: TreeNode?) -> [Int] {
         guard let rootNode = root else {
             return []
@@ -50,9 +50,8 @@ class Solution_515 {
 
 
 /********************测试代码********************/
-extension Solution_515 {
-    func solution_515_test(_ node: TreeNode?) {
-        let resultArray = self.largestValues(node)
-        print(resultArray)
+extension Solution_0515 {
+    func test() {
+        print(largestValues(tree6Root))
     }
 }

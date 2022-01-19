@@ -1,5 +1,5 @@
 //
-//  LeetCode_589.swift
+//  LeetCode_0589.swift
 //  LeetCode
 //
 //  Created by 余杜林 on 2021/1/27.
@@ -15,7 +15,7 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_589 {
+class Solution_0589 {
     //前序遍历（递归）
     func preorderTraversalWithRecursion(_ root: NTreeNode?, array: inout Array<Int>) {
         guard let root = root else {
@@ -58,21 +58,44 @@ class Solution_589 {
         
         return array
     }
+    
+    /// LeetCode 题解
+    func preorder(_ root: NTreeNode?) -> [Int] {
+        guard let root = root else {
+            return []
+        }
+
+        var result = [Int]()
+        var stack = Array<NTreeNode>()
+        stack.append(root)
+        
+        while let node = stack.popLast() {
+            result.append(node.val)
+            
+            // 入栈从右到左，出栈才是从左到右
+            for subNode in node.children.reversed() {
+                stack.append(subNode)
+            }
+        }
+        return result
+    }
 }
 
 
 /********************测试代码********************/
-extension Solution_589 {
-    func solution_589_test(_ root: NTreeNode?) {
+extension Solution_0589 {
+    func test() {
         ///!!!: 递归遍历测试
         var preorderRecursionArray = Array<Int>()
         //[1, 2, 3, 6, 7, 11, 14, 4, 8, 12, 5, 9, 13, 10]
-        self.preorderTraversalWithRecursion(root, array: &preorderRecursionArray)
+        preorderTraversalWithRecursion(nTree1Root, array: &preorderRecursionArray)
         print("\(type(of: self)): preorderTraversalWithRecursion: \(preorderRecursionArray)")
 
         ///!!!: 迭代遍历测试
         var preorderIterationArray = Array<Int>()
         //[1, 2, 3, 6, 7, 11, 14, 4, 8, 12, 5, 9, 13, 10]
-        print("\(type(of: self)): preorderTraversalWithIteration: \(self.preorderTraversalWithIteration(root, array: &preorderIterationArray))")
+        print("\(type(of: self)): preorderTraversalWithIteration: \(preorderTraversalWithIteration(nTree2Root, array: &preorderIterationArray))")
+        
+        print("\(type(of: self)): preorder: \(preorder(nTree1Root))")
     }
 }

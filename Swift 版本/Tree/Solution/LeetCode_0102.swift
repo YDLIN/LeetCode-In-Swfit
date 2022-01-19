@@ -1,5 +1,5 @@
 //
-//  LeetCode_107.swift
+//  LeetCode_0102.swift
 //  LeetCode
 //
 //  Created by Du on 2021/1/27.
@@ -9,20 +9,20 @@
 import Foundation
 /**
  题目：
- 107. 二叉树的层序遍历 II
- 给定一个二叉树，返回其节点值自底向上的层序遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
+ 102. 二叉树的层序遍历
+ 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。（即逐层地，从左到右访问所有节点）。
  */
 
 
 /********************解题********************/
-class Solution_107 {
-    func levelOrderBottom(_ root: TreeNode?) -> [[Int]] {
-        guard let rootNode = root else {
+class Solution_0102 {
+    func levelOrderTraversal(_ root: TreeNode?) -> [[Int]] {
+        guard let root = root else {
             return []
         }
         
         var resultArray = [[Int]]()
-        var queue: [TreeNode] = [rootNode]
+        var queue = [root]
         
         while !queue.isEmpty {
             var levelArray = [Int]()
@@ -41,16 +41,14 @@ class Solution_107 {
             }
             resultArray.append(levelArray)
         }
-        
-        return resultArray.reversed()
+        return resultArray
     }
 }
 
 
 /********************测试代码********************/
-extension Solution_107 {
-    func solution_107_test(_ node: TreeNode?) {
-        let resultArray = self.levelOrderBottom(node)
-        print(resultArray)
+extension Solution_0102 {
+    func test() {
+        print(levelOrderTraversal(tree4Root))
     }
 }

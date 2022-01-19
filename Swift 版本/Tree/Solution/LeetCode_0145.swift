@@ -1,5 +1,5 @@
 //
-//  LeetCode_145.swift
+//  LeetCode_0145.swift
 //  LeetCode
 //
 //  Created by 余杜林 on 2021/1/24.
@@ -15,7 +15,7 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_145 {
+class Solution_0145 {
     //后序遍历（递归）
     func postorderTraversalWithRecursion(_ root: BinaryTreeClass<String>?, array: inout Array<String>) {
         guard let root = root else {
@@ -66,10 +66,34 @@ class Solution_145 {
         //反转数组
         return array.reversed()
     }
+    
+    /// LeetCode 题解
+    func postorderTraversal(_ root: TreeNode?) -> [Int] {
+        var stack = Array<TreeNode>()
+        var result = Array<Int>()
+        guard let root = root else {
+            return result
+        }
+        
+        stack.append(root)
+        
+        while let node = stack.popLast() {
+            result.append(node.val)
+            
+            if let left = node.left {
+                stack.append(left)
+            }
+            
+            if let right = node.right {
+                stack.append(right)
+            }
+        }
+        return result.reversed()
+    }
 }
 
 /********************测试代码********************/
-extension Solution_145 {
+extension Solution_0145 {
     func test() {
         ///!!!: 递归遍历测试
         var postorderRecursionArray = Array<String>()
@@ -81,5 +105,7 @@ extension Solution_145 {
         var postorderIterationArray = Array<String>()
         ////["K", "H", "D", "E", "B", "I", "F", "J", "G", "C", "A"]
         print("\(type(of: self)): postorderTraversalWithIteration: \(self.postorderTraversalWithIteration(nodeA_class, array: &postorderIterationArray))")
+        
+        print("\(type(of: self)): postorderTraversal: \(postorderTraversal(tree2Root))")
     }
 }

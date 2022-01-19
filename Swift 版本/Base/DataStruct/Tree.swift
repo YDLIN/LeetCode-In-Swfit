@@ -13,26 +13,26 @@ public class TreeNode {
     public var val: Int
     public var left: TreeNode?
     public var right: TreeNode?
-    public var next: TreeNode?
+//    public var next: TreeNode?
     public init() {
         self.val = 0
         self.left = nil
         self.right = nil
-        self.next = nil
+//        self.next = nil
     }
     
     public init(_ value: Int) {
         self.val = value
         self.left = nil
         self.right = nil
-        self.next = nil
+//        self.next = nil
     }
     
-    public init(_ value: Int, _ left: TreeNode?, _ right: TreeNode?, _ next: TreeNode? = nil) {
+    public init(_ value: Int, _ left: TreeNode?, _ right: TreeNode?) {
         self.val = value
         self.left = left
         self.right = right
-        self.next = next
+//        self.next = next
     }
     
     /// 判断是否为叶子节点

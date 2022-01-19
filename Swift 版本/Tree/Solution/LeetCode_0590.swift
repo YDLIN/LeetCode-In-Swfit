@@ -1,5 +1,5 @@
 //
-//  LeetCode_590.swift
+//  LeetCode_0590.swift
 //  LeetCode
 //
 //  Created by Du on 2021/1/29.
@@ -16,7 +16,7 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_590 {
+class Solution_0590 {
     //后序遍历（递归）
     func postorderTraversalWithRecursion(_ root: NTreeNode?, array: inout Array<Int>) {
         guard let root = root else {
@@ -59,28 +59,28 @@ class Solution_590 {
      return:[2, 3, 4, 1]
      */
     //前序遍历（迭代、使用栈）
-//    func postorderTraversalWithIteration_1(_ root: NTreeNode?, array: inout Array<Int>) -> [Int] {
-//        var stack = Stack<NTreeNode?>()
-//        stack.push(root)
-//
-//        while !stack.isEmpty {
-//            //取出栈顶元素，进行处理
-//            guard let top = stack.peek(), let unwarpedTop = top else {
-//                return []
-//            }
-//
-//            //栈顶元素出栈
-//            stack.pop()
-//
-//            array.append(unwarpedTop.val)
-//
-//            _ = unwarpedTop.children.map {
-//                stack.push($0)
-//            }
-//        }
-//
-//        return array.reversed()
-//    }
+    func postorderTraversalWithIteration_1(_ root: NTreeNode?, array: inout Array<Int>) -> [Int] {
+        var stack = Stack<NTreeNode?>()
+        stack.push(root)
+
+        while !stack.isEmpty {
+            //取出栈顶元素，进行处理
+            guard let top = stack.peek(), let unwarpedTop = top else {
+                return []
+            }
+
+            //栈顶元素出栈
+            stack.pop()
+
+            array.append(unwarpedTop.val)
+
+            _ = unwarpedTop.children.map {
+                stack.push($0)
+            }
+        }
+
+        return array.reversed()
+    }
     
     
     //前序遍历（迭代、使用数组）
@@ -104,21 +104,45 @@ class Solution_590 {
         
         return array.reversed()
     }
+    
+    /// LeetCode 题解
+    func postorder(_ root: NTreeNode?) -> [Int] {
+        guard let root = root else {
+            return []
+        }
+
+        var result = [Int]()
+        var stack = Array<NTreeNode>()
+        stack.append(root)
+        
+        while let node = stack.popLast() {
+            result.append(node.val)
+            
+            // 入栈从右到左，出栈才是从左到右
+            for subNode in node.children {
+                stack.append(subNode)
+            }
+            
+        }
+        return result.reversed()
+    }
 }
 
 
 /********************测试代码********************/
-extension Solution_590 {
-    func solution_590_test(_ root: NTreeNode?) {
+extension Solution_0590 {
+    func test() {
         ///!!!: 递归遍历测试
         var postorderRecursionArray = Array<Int>()
         //[2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1]
-        self.postorderTraversalWithRecursion(root, array: &postorderRecursionArray)
+        postorderTraversalWithRecursion(nTree1Root, array: &postorderRecursionArray)
         print("\(type(of: self)): postorderTraversalWithRecursion: \(postorderRecursionArray)")
 
         ///!!!: 迭代遍历测试
         var postorderIterationArray = Array<Int>()
         //[2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1]
-        print("\(type(of: self)): postorderTraversalWithIteration_2: \(self.postorderTraversalWithIteration_2(root, array: &postorderIterationArray))")
+        print("\(type(of: self)): postorderTraversalWithIteration_2: \(postorderTraversalWithIteration_2(nTree1Root, array: &postorderIterationArray))")
+        
+        print("\(type(of: self)): postorder: \(postorder(nTree1Root))")
     }
 }

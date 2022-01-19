@@ -8,109 +8,21 @@
 
 
 import Foundation
-/**
- 此文件包含了二叉树、N叉树测试所需要的节点数据
- /********************二叉树测试用例********************/
- // 树-1
- [1,2,3,4,5,6,7,8,null,null,null,9,10,null,11,null,12]
- 
-                   (1)
-                /      \
-              (2)      (3)
-             /   \    /   \
-           (4)   (5) (6)  (7)
-           /        /   \    \
-        (8)       (9)  (10) (11)
-          \
-         (12)
- 
- // 树-2
- [1,3,2,5,4,null,9]
- 
-                  (1)
-                /     \
-              (3)     (2)
-             /   \       \
-           (5)   (4)     (9)
- 
- // 树-3（完美二叉树）
- [1,2,3,4,5,6,7]
- 
-                  (1)
-                /     \
-              (2)     (3)
-             /   \   /   \
-           (4)   (5)(6)  (7)
- 
- 
- // 树-4（完全二叉树）
- [1,2,3,4,5,6,null]
- 
-                  (1)
-                /     \
-              (2)     (3)
-             /   \   /
-           (4)   (5)(6)
- 
- 
- // 树-5
- [1,2,null,4,5]
- 
-                  (1)
-                /
-              (2)
-             /   \
-           (4)   (5)
- 
- 
- /********************N叉树测试用例********************/
- // 树-1
- [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
- 
-                  (1)
-            /   |    |    \
-          (2)  (3)  (4)   (5)
-              /  \   |   /   \
-            (6)  (7)(8) (9) (10)
-                  |  |   |
-                (11)(12)(13)
-                  |
-                (14)
- 
- // 树-2
- [1,null,3,2,4,null,5,6]
- 
-                  (1)
-                /  |  \
-              (3) (2) (4)
-             /   \
-           (5)   (6)
- 
- // 树-3
- [11,null,10,9,6,null,9,8,5,null,null,5,4,1,null,null,null,4,3,0,null,null,3,2,-1]
- 
-                  (11)
-             /      |     \
-           (10)    (9)    (6)
-          / | \          / | \
-        (9)(8)(5)      (5)(4)(1)
-             / | \       / | \
-           (4)(3)(0)   (3)(2)(-1)
- 
- 
- // 树-4
- [1,null,6,9,7,null,9,8,-3,null,null,5,1,null,null,null,4,0,null,null,3,2,-1]
- 
-                  (1)
-             /     |     \
-           (6)    (9)    (7)
-          / | \         /   \
-        (9)(8)(-3)    (5)   (1)
-              /  \         / | \
-            (4)  (0)     (3)(2)(-1)
- */
 
-/// 节点（类实现）
+/*
+ 节点（类实现）
+ [A,B,C,D,E,F,G,H,null,null,null,I,null,null,J,null,K]
+ 
+                   (A)
+                /      \
+              (B)      (C)
+             /   \    /   \
+           (D)   (E) (F)  (G)
+           /        /        \
+        (H)       (I)       (J)
+          \
+          (K)
+ */
 let nodeK_class = BinaryTreeClass("K")
 let nodeJ_class = BinaryTreeClass("J")
 let nodeI_class = BinaryTreeClass("I")
@@ -139,7 +51,8 @@ let nodeA_enum = BinaryTreeEnum.node(nodeB_enum, "A", nodeC_enum)
 
 /********************二叉树节点（应用在LeetCode题目上）********************/
 /*
- 二叉树：测试树-1
+ 测试树-1
+ [1,2,3,4,5,6,7,8,null,null,null,9,10,null,11,null,12]
  
                    (1)
                 /      \
@@ -165,7 +78,9 @@ let tree1Node03 = TreeNode(3, tree1Node06, tree1Node07)
 let tree1Root = TreeNode(1, tree1Node02, tree1Node03)
 
 /*
- 二叉树：测试树-2
+ 测试树-2
+ [1,3,2,5,4,null,9]
+ 
                   (1)
                 /     \
               (3)     (2)
@@ -180,7 +95,9 @@ let tree2Node02 = TreeNode(2, nil, tree2Node09)
 let tree2Root = TreeNode(1, tree2Node03, tree2Node02)
 
 /*
- 二叉树：测试树-3（完美二叉树）
+ 测试树-3（完美二叉树）
+ [1,2,3,4,5,6,7]
+ 
                   (1)
                 /     \
               (2)     (3)
@@ -197,7 +114,9 @@ let tree3Node03 = TreeNode(3, tree3Node06, tree3Node07)
 let tree3Root = TreeNode(1, tree3Node02, tree3Node03)
 
 /*
- 二叉树：测试树-4（完全二叉树）
+ 测试树-4（完全二叉树）
+ [1,2,3,4,5,6,null]
+ 
                   (1)
                 /     \
               (2)     (3)
@@ -213,7 +132,9 @@ let tree4Node03 = TreeNode(3, tree4Node06, nil)
 let tree4Root = TreeNode(1, tree4Node02, tree4Node03)
 
 /*
- 二叉树：测试树-5
+ 测试树-5
+ [1,2,null,4,5]
+ 
                   (1)
                 /
               (2)
@@ -226,7 +147,9 @@ let tree5Node02 = TreeNode(2, tree5Node04, tree5Node05)
 let tree5Root = TreeNode(1, tree5Node02, nil)
 
 /*
- 二叉树：测试树-6
+ 测试树-6
+ [1,2,3,5,null,7]
+ 
                   (1)
                 /     \
               (2)     (3)
@@ -240,8 +163,38 @@ let tree6Node03 = TreeNode(3, tree6Node07, nil)
 let tree6Node02 = TreeNode(2, tree6Node05, nil)
 let tree6Root = TreeNode(1, tree6Node02, tree6Node03)
 
+/*
+ 测试树-7
+ [1,null,2,3]
+ 
+                   (1)
+                      \
+                     (2)
+                     /
+                   (3)
+ 
+ */
+let tree7Node03 = TreeNode(3, nil, nil)
+let tree7Node02 = TreeNode(2, tree7Node03, nil)
+let tree7Root = TreeNode(1, nil, tree7Node02)
+
 /********************N叉树节点（应用在LeetCode题目上））********************/
-// N叉树：测试树-1
+// N叉树
+/*
+ 测试树-1
+ [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
+ 
+                  (1)
+            /   |    |    \
+          (2)  (3)  (4)   (5)
+              /  \   |   /   \
+            (6)  (7)(8) (9) (10)
+                  |  |   |
+                (11)(12)(13)
+                  |
+                (14)
+
+ */
 let nTree1Node14 = NTreeNode(14)
 let nTree1Node11 = NTreeNode(11, [nTree1Node14])
 let nTree1Node12 = NTreeNode(12)
@@ -255,17 +208,39 @@ let nTree1Node02 = NTreeNode(2)
 let nTree1Node03 = NTreeNode(3, [nTree1Node06, nTree1Node07])
 let nTree1Node04 = NTreeNode(4, [nTree1Node08])
 let nTree1Node05 = NTreeNode(5, [nTree1Node09, nTree1Node10])
-let nTree1Node01 = NTreeNode(1, [nTree1Node02, nTree1Node03, nTree1Node04, nTree1Node05])
+let nTree1Root = NTreeNode(1, [nTree1Node02, nTree1Node03, nTree1Node04, nTree1Node05])
 
-// N叉树：测试树-2
+/*
+ 测试树-2
+ [1,null,3,2,4,null,5,6]
+ 
+                  (1)
+                /  |  \
+              (3) (2) (4)
+             /   \
+           (5)   (6)
+ 
+ */
 let nTree2Node05 = NTreeNode(5)
 let nTree2Node06 = NTreeNode(6)
 let nTree2Node03 = NTreeNode(3, [nTree2Node05, nTree2Node06])
 let nTree2Node02 = NTreeNode(2)
 let nTree2Node04 = NTreeNode(4)
-let nTree2Node01 = NTreeNode(1, [nTree2Node03, nTree2Node02, nTree2Node04])
+let nTree2Root = NTreeNode(1, [nTree2Node03, nTree2Node02, nTree2Node04])
 
-// N叉树：测试树-3
+/*
+ 测试树-3
+ [11,null,10,9,6,null,9,8,5,null,null,5,4,1,null,null,null,4,3,0,null,null,3,2,-1]
+ 
+                  (11)
+             /      |     \
+           (10)    (9)    (6)
+          / | \          / | \
+        (9)(8)(5)      (5)(4)(1)
+             / | \       / | \
+           (4)(3)(0)   (3)(2)(-1)
+ 
+ */
 let nTree3Node16 = NTreeNode(4)
 let nTree3Node15 = NTreeNode(3)
 let nTree3Node14 = NTreeNode(0)
@@ -281,9 +256,21 @@ let nTree3Node05 = NTreeNode(1)
 let nTree3Node04 = NTreeNode(10, [nTree3Node10, nTree3Node09, nTree3Node08])
 let nTree3Node03 = NTreeNode(9)
 let nTree3Node02 = NTreeNode(6, [nTree3Node07, nTree3Node06, nTree3Node05])
-let nTree3Node01 = NTreeNode(11, [nTree3Node04, nTree3Node03, nTree3Node02])
+let nTree3Root = NTreeNode(11, [nTree3Node04, nTree3Node03, nTree3Node02])
 
-// N叉树：测试树-4
+/*
+ 测试树-4
+ [1,null,6,9,7,null,9,8,-3,null,null,5,1,null,null,null,4,0,null,null,3,2,-1]
+ 
+                  (1)
+             /     |     \
+           (6)    (9)    (7)
+          / | \         /   \
+        (9)(8)(-3)    (5)   (1)
+              /  \         / | \
+            (4)  (0)     (3)(2)(-1)
+ 
+ */
 let nTree4Node14 = NTreeNode(4)
 let nTree4Node13 = NTreeNode(0)
 let nTree4Node12 = NTreeNode(3)
@@ -297,4 +284,4 @@ let nTree4Node05 = NTreeNode(1, [nTree4Node12, nTree4Node11, nTree4Node10])
 let nTree4Node04 = NTreeNode(6, [nTree4Node09, nTree4Node08, nTree4Node07])
 let nTree4Node03 = NTreeNode(9)
 let nTree4Node02 = NTreeNode(7, [nTree4Node06, nTree4Node05])
-let nTree4Node01 = NTreeNode(1, [nTree4Node04, nTree4Node03, nTree4Node02])
+let nTree4Root = NTreeNode(1, [nTree4Node04, nTree4Node03, nTree4Node02])

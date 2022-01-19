@@ -1,5 +1,5 @@
 //
-//  LeetCode_637.swift
+//  LeetCode_0637.swift
 //  LeetCode
 //
 //  Created by Du on 2021/1/27.
@@ -15,13 +15,13 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_637 {
+class Solution_0637 {
     func averageOfLevels(_ root: TreeNode?) -> [Double] {
-        guard let rootNode = root else {
+        guard let root = root else {
             return []
         }
         
-        var queue: [TreeNode] = [rootNode]
+        var queue = [root]
         var averageArray = [Double]()
         
         while !queue.isEmpty {
@@ -50,9 +50,8 @@ class Solution_637 {
 
 
 /********************测试代码********************/
-extension Solution_637 {
-    func solution_637_test(_ node: TreeNode?) {
-        let resultArray = self.averageOfLevels(node)
-        print(resultArray)
+extension Solution_0637 {
+    func test() {
+        print(averageOfLevels(tree6Root))
     }
 }

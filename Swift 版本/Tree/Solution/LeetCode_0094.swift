@@ -1,5 +1,5 @@
 //
-//  LeetCode_094.swift
+//  LeetCode_0094.swift
 //  LeetCode
 //
 //  Created by 余杜林 on 2021/1/24.
@@ -15,16 +15,12 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_094 {
+class Solution_0094 {
     /**
      递归三要素：
      1、确定递归函数的参数和返回值
      2、确定终止条件
      3、确定单层递归的逻辑
-     
-     公共号文章链接：
-     递归：https://mp.weixin.qq.com/s/PwVIfxDlT3kRgMASWAMGhA
-     迭代：https://mp.weixin.qq.com/s?__biz=MzUxNjY5NTYxNA==&mid=2247484677&idx=1&sn=e04b4a5baa7a3f6b090947bfa8aea97a&chksm=f9a23654ced5bf421356df70893ef0fa2dab723b83ad9c90a5d4e77f523dd643c85b4e774426&cur_album_id=1485825793120387074&scene=189#rd
      */
     
     
@@ -85,11 +81,33 @@ class Solution_094 {
         
         return array
     }
+    
+    /// LeetCode 题解
+    func inorderTraversal(_ root: TreeNode?) -> [Int] {
+        var stack = Array<TreeNode>()
+        var result = Array<Int>()
+        
+        var cur = root
+        while cur != nil || !stack.isEmpty {
+            if cur != nil {
+                // 每个入栈的元素，都要检查它是否有左节点
+                stack.append(cur!)
+                cur = cur!.left
+            } else {
+                cur = stack.popLast()
+                if let last = cur {
+                    result.append(last.val)
+                }
+                cur = cur?.right
+            }
+        }
+        return result
+    }
 }
 
 /********************测试代码********************/
-extension Solution_094 {
-    func solution_094_test() {
+extension Solution_0094 {
+    func test() {
         ///!!!: 递归遍历测试
         var inorderRecursionArray = Array<String>()
         //["H", "K", "D", "B", "E", "A", "I", "F", "C", "G", "J"]
@@ -100,5 +118,7 @@ extension Solution_094 {
         var inorderIterationArray = Array<String>()
         //["H", "K", "D", "B", "E", "A", "I", "F", "C", "G", "J"]
         print("\(type(of: self)): inorderTraversalWithIteration: \(inorderTraversalWithIteration(nodeA_class, array: &inorderIterationArray))")
+        
+        print("\(type(of: self)): inorderTraversal: \(inorderTraversal(tree2Root))")
     }
 }

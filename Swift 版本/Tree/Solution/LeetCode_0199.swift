@@ -1,5 +1,5 @@
 //
-//  LeetCode_199.swift
+//  LeetCode_0199.swift
 //  LeetCode
 //
 //  Created by Du on 2021/1/27.
@@ -15,14 +15,14 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_199 {
+class Solution_0199 {
     func rightSideView(_ root: TreeNode?) -> [Int] {
-        guard let rootNode = root else {
+        guard let root = root else {
             return []
         }
         
         var resultArray = [[Int]]()
-        var queue: [TreeNode] = [rootNode]
+        var queue = [root]
         
         while !queue.isEmpty {
             var levelArray = [Int]()
@@ -56,11 +56,11 @@ class Solution_199 {
     
     // 方法2比方法1要好
     func rightSideView_2(_ root: TreeNode?) -> [Int] {
-        guard let rootNode = root else {
+        guard let root = root else {
             return []
         }
         
-        var queue: [TreeNode] = [rootNode]
+        var queue = [root]
         var rightSidlArray = [Int]()
         
         while !queue.isEmpty {
@@ -88,9 +88,8 @@ class Solution_199 {
 
 
 /********************测试代码********************/
-extension Solution_199 {
-    func solution_199_test(_ node: TreeNode?) {
-        let resultArray = self.rightSideView(node)
-        print(resultArray)
+extension Solution_0199 {
+    func test() {
+        print(rightSideView(tree6Root))
     }
 }

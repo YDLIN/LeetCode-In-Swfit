@@ -104,20 +104,20 @@ class Solution_0226 {
 }
 
 extension Solution_0226 {
-    func solution_0226_test(_ root: TreeNode?) {
-//        if let invertTree = self.preorderInvertTreeWithRecursion(root) {
+    func test() {
+//        if let invertTree = self.preorderInvertTreeWithRecursion(tree6Root) {
 //            print("preorderInvertTreeWithRecursion:\n \(invertTree)")
 //        }
 //        
-//        if let invertTree = self.invertTreeWithIteration(root) {
+//        if let invertTree = self.invertTreeWithIteration(tree6Root) {
 //            print("invertTreeWithIteration:\n \(invertTree)")
 //        }
-        
-        if let invertTree = levelOrder(root) {
-            print("levelOrder:\n \(invertTree)")
+        print("before:\n \(tree6Root)")
+        if let invertTree = levelOrder(tree6Root) {
+            print("after:\n \(invertTree)")
         }
         
-//        if let postorderInvertTree = self.postorderInvertTreeWithRecursion(root) {
+//        if let postorderInvertTree = self.postorderInvertTreeWithRecursion(tree6Root) {
 //            print("postorderInvertTreeWithRecursion:\n \(postorderInvertTree)")
 //        }
     }

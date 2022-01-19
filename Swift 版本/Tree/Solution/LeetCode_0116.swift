@@ -1,5 +1,5 @@
 //
-//  LeetCode_116.swift
+//  LeetCode_0116.swift
 //  LeetCode
 //
 //  Created by 余杜林 on 2021/1/31.
@@ -23,7 +23,22 @@ import Foundation
 
 
 /********************解题********************/
-class Solution_116 {
+private extension TreeNode {
+    private struct AssociatedKey {
+        static var next: String = "TreeNode_Next"
+    }
+    
+    var next: TreeNode? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKey.next) as? TreeNode
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKey.next, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+}
+
+class Solution_0116 {
     // 递归 - 前序遍历
     func connect(_ root: TreeNode?) -> TreeNode? {
         guard let root = root else {
@@ -53,7 +68,7 @@ class Solution_116 {
             return nil
         }
         
-        var queue: [TreeNode] = [root]
+        var queue = [root]
         
         while !queue.isEmpty {
             let size = queue.count
@@ -65,8 +80,15 @@ class Solution_116 {
                 // 2、因为上一步已经移除了数组最前面的元素，所以这个移出的元素的下一个元素，肯定是数组的第一个元素
                 if i == (size - 1) {
                     firstNode.next = nil
-                }else {
+                } else {
                     firstNode.next = queue.first
+                }
+                
+                // 测试代码
+                if let next = firstNode.next {
+                    print("\(firstNode.val)->\(next.val)")
+                } else {
+                    print("\(firstNode.val)->nil")
                 }
                 
                 if let leftNode = firstNode.left {
@@ -85,9 +107,12 @@ class Solution_116 {
 
 
 /********************测试代码********************/
-extension Solution_116 {
-    func solution_116_test(_ node: TreeNode?) {
-        let connectRoot = self.connect(node)
-        print(connectRoot!)
+extension Solution_0116 {
+    func test() {
+        if let connectRoot = levelOrderConnect(tree3Root) {
+            print(connectRoot)
+        } else {
+            print("Empty connectRoot")
+        }
     }
 }

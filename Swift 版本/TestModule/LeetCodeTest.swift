@@ -10,15 +10,24 @@ import Foundation
 /********************LeetCode的测试写在这里********************/
 class LeetCodeTest {
     public func startTest() {
+        _0To300()
+        _300To600()
+        _600To900()
+        _900To1200()
+    }
+    
+    private func _0To300() {
 //        solution_0027_test()
 //        solution_0028_test()
 //        solution_0059_test()
 //        solution_0094_test()
+//        solution_0101_test()
 //        solution_0102_test()
 //        solution_0104_test()
 //        solution_0105_test()
 //        solution_0106_test()
 //        solution_0107_test()
+//        solution_0110_test()
 //        solution_0111_test()
 //        solution_0116_test()
 //        solution_0117_test()
@@ -27,14 +36,26 @@ class LeetCodeTest {
 //        solution_0151_test()
 //        solution_0199_test()
 //        solution_0203_test()
+//        solution_0222_test()
 //        solution_0226_test()
+        solution_0257_test()
+    }
+    
+    private func _300To600() {
 //        solution_0344_test()
 //        solution_0429_test()
 //        solution_0515_test()
 //        solution_0541_test()
+//        solution_0559_test()
 //        solution_0589_test()
-        solution_0590_test()
+//        solution_0590_test()
+    }
+    
+    private func _600To900() {
 //        solution_0637_test()
+    }
+    
+    private func _900To1200() {
 //        solution_0958_test()
     }
 }
@@ -61,6 +82,10 @@ extension LeetCodeTest {
         Solution_0094().test()
     }
     
+    func solution_0101_test() {
+        Solution_0101().test()
+    }
+    
     func solution_0102_test() {
         Solution_0102().test()
     }
@@ -80,6 +105,10 @@ extension LeetCodeTest {
     
     func solution_0107_test() {
         Solution_0107().test()
+    }
+    
+    func solution_0110_test() {
+        Solution_0110().test()
     }
     
     func solution_0111_test() {
@@ -102,6 +131,10 @@ extension LeetCodeTest {
         Solution_0145().test()
     }
     
+    func solution_0151_test() {
+        Solution_0151().solution_0151_test(string_6)
+    }
+    
     func solution_0199_test() {
         Solution_0199().test()
     }
@@ -111,27 +144,16 @@ extension LeetCodeTest {
         Solution_0203().solution_0203_test(linkedList.head, 6)
     }
     
-    func solution_0637_test() {
-        Solution_0637().test()
-    }
-    
-    func leetCode_0707Test() {
-        let linkList = Solution_0707()
-        linkList.addAtTail(1)
-        print(linkList.get(0))
-    }
-    
-    func solution_0541_test() {
-        Solution_0541().solution_0541_test(string_1, 2)
-//        Solution_0541().solution_0541_test(string_2, 4)
-    }
-    
-    func solution_0151_test() {
-        Solution_0151().solution_0151_test(string_6)
+    func solution_0222_test() {
+        Solution_0222().test()
     }
     
     func solution_0226_test() {
         Solution_0226().test()
+    }
+    
+    func solution_0257_test() {
+        Solution_0257().test()
     }
     
     func solution_0344_test() {
@@ -147,12 +169,31 @@ extension LeetCodeTest {
         Solution_0515().test()
     }
     
+    func solution_0541_test() {
+        Solution_0541().solution_0541_test(string_1, 2)
+//        Solution_0541().solution_0541_test(string_2, 4)
+    }
+    
+    func solution_0559_test() {
+        Solution_0559().test()
+    }
+    
     func solution_0589_test() {
         Solution_0589().test()
     }
     
     func solution_0590_test() {
         Solution_0590().test()
+    }
+    
+    func solution_0637_test() {
+        Solution_0637().test()
+    }
+    
+    func leetCode_0707Test() {
+        let linkList = Solution_0707()
+        linkList.addAtTail(1)
+        print(linkList.get(0))
     }
     
     func solution_0958_test() {

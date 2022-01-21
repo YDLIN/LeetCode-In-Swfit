@@ -178,6 +178,53 @@ let tree7Node03 = TreeNode(3, nil, nil)
 let tree7Node02 = TreeNode(2, tree7Node03, nil)
 let tree7Root = TreeNode(1, nil, tree7Node02)
 
+/*
+ 测试树-8（完美二叉树）
+ [1,2,3]
+ 
+                (1)
+                /
+              (2)
+ 
+ */
+let tree8Node02 = TreeNode(2, nil, nil)
+let tree8Root = TreeNode(1, tree8Node02, nil)
+
+/*
+ 测试树-9（完全二叉树）
+ [1,2,3]
+ 
+                  (1)
+                /     \
+              (2)     (3)
+ 
+ */
+let tree9Node03 = TreeNode(3, nil, nil)
+let tree9Node02 = TreeNode(2, nil, nil)
+let tree9Root = TreeNode(1, tree9Node02, tree9Node03)
+
+/*
+ 测试树-10
+ [1,3,8,4,6,null,7,null,null,9,5,null,null]
+ 
+                  (1)
+                /     \
+              (3)     (8)
+             /   \       \
+           (4)   (6)     (7)
+                /   \
+              (9)   (5)
+ 
+ */
+let tree10Node08 = TreeNode(9, nil, nil)
+let tree10Node07 = TreeNode(5, nil, nil)
+let tree10Node06 = TreeNode(4, nil, nil)
+let tree10Node05 = TreeNode(6, tree10Node08, tree10Node07)
+let tree10Node04 = TreeNode(7, nil, nil)
+let tree10Node03 = TreeNode(3, tree10Node06, tree10Node05)
+let tree10Node02 = TreeNode(8, nil, tree10Node04)
+let tree10Root = TreeNode(1, tree10Node03, tree10Node02)
+
 /********************N叉树节点（应用在LeetCode题目上））********************/
 // N叉树
 /*

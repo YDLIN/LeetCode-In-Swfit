@@ -194,14 +194,14 @@ let tree8Root = TreeNode(1, tree8Node02, nil)
  测试树-9（完全二叉树）
  [1,2,3]
  
-                  (1)
+                  (2)
                 /     \
-              (2)     (3)
+              (4)     (5)
  
  */
-let tree9Node03 = TreeNode(3, nil, nil)
-let tree9Node02 = TreeNode(2, nil, nil)
-let tree9Root = TreeNode(1, tree9Node02, tree9Node03)
+let tree9Node03 = TreeNode(5, nil, nil)
+let tree9Node02 = TreeNode(4, nil, nil)
+let tree9Root = TreeNode(2, tree9Node02, tree9Node03)
 
 /*
  测试树-10

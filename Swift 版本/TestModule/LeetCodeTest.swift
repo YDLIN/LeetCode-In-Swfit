@@ -21,6 +21,7 @@ class LeetCodeTest {
 //        solution_0028_test()
 //        solution_0059_test()
 //        solution_0094_test()
+//        solution_0100_test()
 //        solution_0101_test()
 //        solution_0102_test()
 //        solution_0104_test()
@@ -38,12 +39,14 @@ class LeetCodeTest {
 //        solution_0203_test()
 //        solution_0222_test()
 //        solution_0226_test()
-        solution_0257_test()
+//        solution_0257_test()
     }
     
     private func _300To600() {
 //        solution_0344_test()
+//        solution_0404_test()
 //        solution_0429_test()
+        solution_0513_test()
 //        solution_0515_test()
 //        solution_0541_test()
 //        solution_0559_test()
@@ -80,6 +83,10 @@ extension LeetCodeTest {
     
     func solution_0094_test() {
         Solution_0094().test()
+    }
+    
+    func solution_0100_test() {
+        Solution_0100().test()
     }
     
     func solution_0101_test() {
@@ -161,8 +168,16 @@ extension LeetCodeTest {
         Solution_0344().solution_0344_test(&ch)
     }
     
+    func solution_0404_test() {
+        Solution_0404().test()
+    }
+    
     func solution_0429_test() {
         Solution_0429().test()
+    }
+    
+    func solution_0513_test() {
+        Solution_0513().test()
     }
     
     func solution_0515_test() {

@@ -33,6 +33,7 @@
      - [0589. N叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)
      - [0590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/)
      - [0637. 二叉树的层平均值](https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/)
+     - [0654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree/)
      - [0958. 二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/)
  
  - [数组](https://leetcode-cn.com/tag/array/)

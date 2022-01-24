@@ -31,7 +31,7 @@ class LeetCodeTest {
 //        solution_0110_test()
 //        solution_0111_test()
 //        solution_0112_test()
-        solution_0113_test()
+//        solution_0113_test()
 //        solution_0116_test()
 //        solution_0117_test()
 //        solution_0144_test()
@@ -58,6 +58,7 @@ class LeetCodeTest {
     
     private func _600To900() {
 //        solution_0637_test()
+        solution_0654_test()
     }
     
     private func _900To1200() {
@@ -213,6 +214,10 @@ extension LeetCodeTest {
     
     func solution_0637_test() {
         Solution_0637().test()
+    }
+    
+    func solution_0654_test() {
+        Solution_0654().test()
     }
     
     func leetCode_0707Test() {

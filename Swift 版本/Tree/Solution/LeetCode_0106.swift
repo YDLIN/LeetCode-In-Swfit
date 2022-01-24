@@ -102,7 +102,7 @@ class Solution_0106 {
         let leftPostorderEnd = postorderBegin + leftInorderEnd - leftInorderBegin
         // 右后序区间，左闭右开[rightPostorderBeign, rightPostorderEnd)
         let rightPostorderBeign = leftPostorderEnd
-        // 这里减 1 是表示跳过根节点
+        // 这里减 1 是表示跳过根节点（也就是后序遍历数组要删除最后一个元素）
         let rightPostorderEnd = postorderEnd - 1
         
         /***************调试代码*****************/
@@ -205,7 +205,7 @@ extension Solution_0106 {
     func test2() -> TreeNode? {
         var inorder = [Int]()
         var postorder = [Int]()
-        let condition = 1
+        let condition = 0
         if condition > 0 {
             inorder = [8, 12, 4, 2, 5, 1, 9, 6, 10, 3, 7, 11]
             postorder = [12, 8, 4, 5, 2, 9, 10, 6, 11, 7, 3, 1]

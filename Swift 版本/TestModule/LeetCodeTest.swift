@@ -30,6 +30,8 @@ class LeetCodeTest {
 //        solution_0107_test()
 //        solution_0110_test()
 //        solution_0111_test()
+//        solution_0112_test()
+        solution_0113_test()
 //        solution_0116_test()
 //        solution_0117_test()
 //        solution_0144_test()
@@ -46,7 +48,7 @@ class LeetCodeTest {
 //        solution_0344_test()
 //        solution_0404_test()
 //        solution_0429_test()
-        solution_0513_test()
+//        solution_0513_test()
 //        solution_0515_test()
 //        solution_0541_test()
 //        solution_0559_test()
@@ -120,6 +122,14 @@ extension LeetCodeTest {
     
     func solution_0111_test() {
         Solution_0111().test()
+    }
+    
+    func solution_0112_test() {
+        Solution_0112().test()
+    }
+    
+    func solution_0113_test() {
+        Solution_0113().test()
     }
     
     func solution_0116_test() {

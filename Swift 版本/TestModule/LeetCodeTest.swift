@@ -20,6 +20,7 @@ class LeetCodeTest {
 //        solution_0027_test()
 //        solution_0028_test()
 //        solution_0059_test()
+        solution_0077_test()
 //        solution_0094_test()
 //        solution_0100_test()
 //        solution_0101_test()
@@ -58,7 +59,7 @@ class LeetCodeTest {
     
     private func _600To900() {
 //        solution_0637_test()
-        solution_0654_test()
+//        solution_0654_test()
     }
     
     private func _900To1200() {
@@ -82,6 +83,10 @@ extension LeetCodeTest {
     func solution_0059_test() {
         let matrix = Solution_0059().generateMatrix(4);
         print(matrix);
+    }
+    
+    func solution_0077_test() {
+        Solution_0077().test()
     }
     
     func solution_0094_test() {

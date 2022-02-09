@@ -51,6 +51,8 @@
      - [0344. 反转字符串](https://leetcode-cn.com/problems/reverse-string)
      - [0541. 反转字符串](https://leetcode-cn.com/problems/reverse-string-ii/)
      - [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
+ - [其他类型](https://leetcode-cn.com/problemset/all/)
+     - [0077. 组合](https://leetcode-cn.com/problems/combinations/)
  */
 
 /*:

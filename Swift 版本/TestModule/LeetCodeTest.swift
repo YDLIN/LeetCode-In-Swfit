@@ -20,7 +20,7 @@ class LeetCodeTest {
 //        solution_0027_test()
 //        solution_0028_test()
 //        solution_0059_test()
-        solution_0077_test()
+//        solution_0077_test()
 //        solution_0094_test()
 //        solution_0100_test()
 //        solution_0101_test()
@@ -40,6 +40,7 @@ class LeetCodeTest {
 //        solution_0151_test()
 //        solution_0199_test()
 //        solution_0203_test()
+        solution_0216_test()
 //        solution_0222_test()
 //        solution_0226_test()
 //        solution_0257_test()
@@ -165,6 +166,10 @@ extension LeetCodeTest {
     func solution_0203_test() {
         let linkedList = removeElementsInLinkedList()
         Solution_0203().solution_0203_test(linkedList.head, 6)
+    }
+    
+    func solution_0216_test() {
+        Solution_0216().test()
     }
     
     func solution_0222_test() {

@@ -17,6 +17,7 @@ class LeetCodeTest {
     }
     
     private func _0To300() {
+        solution_0017_test()
 //        solution_0027_test()
 //        solution_0028_test()
 //        solution_0059_test()
@@ -40,7 +41,7 @@ class LeetCodeTest {
 //        solution_0151_test()
 //        solution_0199_test()
 //        solution_0203_test()
-        solution_0216_test()
+//        solution_0216_test()
 //        solution_0222_test()
 //        solution_0226_test()
 //        solution_0257_test()
@@ -69,6 +70,10 @@ class LeetCodeTest {
 }
 
 extension LeetCodeTest {
+    func solution_0017_test() {
+        Solution_0017().test()
+    }
+    
     func solution_0027_test() {
         Solution_0027().solution_0027_test(&removeArray3, 9)
     }

@@ -52,6 +52,7 @@
      - [0541. 反转字符串](https://leetcode-cn.com/problems/reverse-string-ii/)
      - [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
  - [其他类型](https://leetcode-cn.com/problemset/all/)
+     - [0017. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
      - [0077. 组合](https://leetcode-cn.com/problems/combinations/)
      - [0216. 组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/)
  */

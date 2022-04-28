@@ -17,7 +17,7 @@ class LeetCodeTest {
     }
     
     private func _0To300() {
-        solution_0017_test()
+//        solution_0017_test()
 //        solution_0027_test()
 //        solution_0028_test()
 //        solution_0059_test()
@@ -41,6 +41,7 @@ class LeetCodeTest {
 //        solution_0151_test()
 //        solution_0199_test()
 //        solution_0203_test()
+        solution_0209_test()
 //        solution_0216_test()
 //        solution_0222_test()
 //        solution_0226_test()
@@ -53,7 +54,7 @@ class LeetCodeTest {
 //        solution_0429_test()
 //        solution_0513_test()
 //        solution_0515_test()
-//        solution_0541_test()
+        solution_0541_test()
 //        solution_0559_test()
 //        solution_0589_test()
 //        solution_0590_test()
@@ -171,6 +172,10 @@ extension LeetCodeTest {
     func solution_0203_test() {
         let linkedList = removeElementsInLinkedList()
         Solution_0203().solution_0203_test(linkedList.head, 6)
+    }
+    
+    func solution_0209_test() {
+        Solution_0209().solution_0209_test(8, removeArray1);
     }
     
     func solution_0216_test() {

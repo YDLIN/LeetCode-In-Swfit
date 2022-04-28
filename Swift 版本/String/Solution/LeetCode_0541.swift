@@ -20,23 +20,17 @@ import Foundation
 
 /********************解题********************/
 class Solution_0541 {
-    // 解法一
-//    func reverseStr(_ s: String, _ k: Int) -> String {
-//
-//        return s
-//    }
-    
-    // 解法二
+    // abcdefg - 2
     func reverseStr(_ s: String, _ k: Int) -> String {
         var ch = Array(s)
         
         for i in stride(from: 0, to: ch.count, by: 2 * k) {
             var left = i
             // 这里是判断尾数够不够k个来决定end指针的位置
-            // 如果start + k - 1小于字符串长度，则表明是够k个，否则不够
+            // 如果 start + k - 1 小于字符串长度，则表明是够 k 个，否则不够；因为我们要反转前 k 个，所以要看够不够 k 个
             var right = min(s.count - 1, left + k - 1)
             
-            // 反转字符串，跟344题类似
+            // 反转字符串，跟 344 题类似
             while left < right {
                 // 交换两个值
                 (ch[left], ch[right]) = (ch[right], ch[left])

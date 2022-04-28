@@ -41,7 +41,7 @@ class Solution_0206 {
     // 双指针法
     /*
      几个关键思考点：
-     1. 如果要反转，那就需要将 cur 的 next 反过来，指向 pre，但是这样做，在下次再做同样的动作时，cur 不直到指向哪里了，所以在让 cur.next 指向新的元素的时候，
+     1. 如果要反转，那就需要将 cur 的 next 反过来，指向 pre，但是这样做，在下次再做同样的动作时，cur 不知道指向哪里了，所以在让 cur.next 指向新的元素的时候，
      先用临时变量保存起来：
      tmp = cur?.next
      2. cur 指针需要不断的向前移动，所以这里就确定了循环的条件就是 cur 不为空
@@ -51,8 +51,8 @@ class Solution_0206 {
         if head == nil || head?.next == nil {
             return head
         }
-        var tmp: Node<Int>?
         var cur = head
+        var tmp: Node<Int>?
         var pre: Node<Int>?
         
         while cur != nil {
